@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://daqdrr6ft7bls"]
+
+[ext_resource type="PackedScene" uid="uid://bp6ly210f2gls" path="res://Assets/player.tscn" id="1_kvbv0"]
+[ext_resource type="PackedScene" uid="uid://cmdewht8q6ldn" path="res://Assets/block.tscn" id="1_y8px8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_y8px8")]
+position = Vector2(0, 264)
+scale = Vector2(27.44, 1)
+
+[node name="Player" parent="." instance=ExtResource("1_kvbv0")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
