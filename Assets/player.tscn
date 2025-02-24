@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp6ly210f2gls"]
+[gd_scene load_steps=5 format=3 uid="uid://bp6ly210f2gls"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.cs" id="1_e73tj"]
+[ext_resource type="Script" path="res://Scripts/PlayerInteraction.cs" id="2_1yt2m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7snp"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_aqd0g"]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
+scale = Vector2(0.5, 1)
 script = ExtResource("1_e73tj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,7 +21,11 @@ scale = Vector2(100, 100)
 mesh = SubResource("QuadMesh_aqd0g")
 
 [node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_1yt2m")
 
 [node name="Camera2D" type="Camera2D" parent="Node2D"]
 zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Node2D"]
+target_position = Vector2(200, 0)
