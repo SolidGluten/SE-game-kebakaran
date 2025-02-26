@@ -15,6 +15,7 @@ script = ExtResource("1_ihdxy")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_81jcb")
+script = ExtResource("1_ihdxy")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 scale = Vector2(10, 10)

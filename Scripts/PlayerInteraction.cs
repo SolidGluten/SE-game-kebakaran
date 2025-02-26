@@ -25,8 +25,9 @@ public partial class PlayerInteraction : Node
 
 		var collider = raycast.GetCollider();
 		if(raycast.IsColliding()){
-			var colliderScript = collider.GetScript();
-			GD.Print(colliderScript is Door);			
+			if(collider.HasMethod("Break") && Input.IsActionJustPressed("interact")){
+				collider.Call("Break");
+			}
 		}
 	}
 }

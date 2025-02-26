@@ -17,5 +17,6 @@ public partial class Door : Node, IBreakable
 
 	public void Break(){
 		this.QueueFree();
+		GD.Print(this.Name + " has been broken.");
 	}
 }
