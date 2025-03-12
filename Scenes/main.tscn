@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://daqdrr6ft7bls"]
+[gd_scene load_steps=12 format=4 uid="uid://daqdrr6ft7bls"]
 
 [ext_resource type="PackedScene" uid="uid://bp6ly210f2gls" path="res://Assets/player.tscn" id="1_kvbv0"]
 [ext_resource type="Script" path="res://Scripts/Door.cs" id="1_xi7oy"]
 [ext_resource type="PackedScene" uid="uid://1pbtqnffu74v" path="res://Assets/game_manager.tscn" id="4_a1mqv"]
 [ext_resource type="Texture2D" uid="uid://dciboji3vtvym" path="res://Sprites/LivingRoom.png" id="5_5g2ml"]
-[ext_resource type="PackedScene" uid="uid://dgm6ffmu50w84" path="res://Assets/static_hurt_object.tscn" id="5_dupe7"]
 [ext_resource type="PackedScene" uid="uid://cpocf5cb5704c" path="res://Assets/health_manager.tscn" id="5_iu2oc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dmyru"]
@@ -192,15 +191,14 @@ script = ExtResource("1_xi7oy")
 
 [node name="Player" parent="." instance=ExtResource("1_kvbv0")]
 position = Vector2(0, 119)
-DecelTime = 0.5
-KnockbackDuration = 1000.0
+AccelTime = 0.5
+DecelTime = 0.3
+KnockbackDuration = 600.0
+KnockbackForce = 200.0
 
 [node name="GameManager" parent="." instance=ExtResource("4_a1mqv")]
 
 [node name="HealthManager" parent="." instance=ExtResource("5_iu2oc")]
-
-[node name="StaticHurtObject" parent="." instance=ExtResource("5_dupe7")]
-position = Vector2(-136, 128)
 
 [node name="Node2D" type="Node2D" parent="."]
 

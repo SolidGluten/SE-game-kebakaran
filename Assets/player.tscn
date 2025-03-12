@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp6ly210f2gls"]
+[gd_scene load_steps=5 format=3 uid="uid://bp6ly210f2gls"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.cs" id="1_e73tj"]
 [ext_resource type="Script" path="res://Scripts/PlayerInteraction.cs" id="2_1yt2m"]
-[ext_resource type="Script" path="res://Scripts/PlayerCollision.cs" id="2_eqt0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7snp"]
 
@@ -16,18 +15,17 @@ script = ExtResource("1_e73tj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_b7snp")
-script = ExtResource("2_eqt0w")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 scale = Vector2(100, 100)
 mesh = SubResource("QuadMesh_aqd0g")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="CameraPivot" type="Node2D" parent="."]
 script = ExtResource("2_1yt2m")
 
-[node name="Camera2D" type="Camera2D" parent="Node2D"]
+[node name="Camera2D" type="Camera2D" parent="CameraPivot"]
 zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
 
-[node name="RayCast2D" type="RayCast2D" parent="Node2D"]
+[node name="RayCast2D" type="RayCast2D" parent="CameraPivot"]
 target_position = Vector2(200, 0)
