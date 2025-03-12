@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp6ly210f2gls"]
+[gd_scene load_steps=6 format=3 uid="uid://bp6ly210f2gls"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.cs" id="1_e73tj"]
 [ext_resource type="Script" path="res://Scripts/PlayerInteraction.cs" id="2_1yt2m"]
+[ext_resource type="Script" path="res://Scripts/PlayerCollision.cs" id="2_eqt0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b7snp"]
 
@@ -15,6 +16,7 @@ script = ExtResource("1_e73tj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_b7snp")
+script = ExtResource("2_eqt0w")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 scale = Vector2(100, 100)
