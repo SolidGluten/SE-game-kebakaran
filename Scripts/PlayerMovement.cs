@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class PlayerMovement : CharacterBody2D
 {
@@ -13,15 +14,17 @@ public partial class PlayerMovement : CharacterBody2D
 	[Export] public float DecelTime = 1f; // Time to stop
 
 	[Export] public float JumpVelocity = -400.0f;
-	[Export] public float InvicibilityTime = 0.2f;
-	[Export] public float HurtKnockback = 100.0f;
+
+	[Export] private bool CanMove = true;
+	[Export] public float KnockbackDuration = 1f;
+	[Export] public float KnockbackForce = 100.0f;
 
 	private bool isMoveRight = true;
 
 	public override void _Ready()
 	{
-		Acceleration = MaxSpeed/AccelTime;
-		Deceleration = MaxSpeed/DecelTime;
+		Acceleration = MaxSpeed / AccelTime;
+		Deceleration = MaxSpeed / DecelTime;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -43,25 +46,30 @@ public partial class PlayerMovement : CharacterBody2D
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-		if (direction != Vector2.Zero)
-		{
-			var _isMoveRight = direction.X > 0;
-			if (isMoveRight != _isMoveRight)
+
+		if (CanMove){
+
+			if (direction != Vector2.Zero)
 			{
-				CurrentSpeed = 0f; //resets velocity if direction changes
+				var _isMoveRight = direction.X > 0;
+				if (isMoveRight != _isMoveRight)
+				{
+					CurrentSpeed = 0f; //resets velocity if direction changes
+				}
+				else
+				{
+					CurrentSpeed = Mathf.MoveToward(CurrentSpeed, MaxSpeed * direction.X, (float)delta * Acceleration);
+				}
+				isMoveRight = _isMoveRight;
 			}
 			else
 			{
-				CurrentSpeed = Mathf.MoveToward(CurrentSpeed, MaxSpeed * direction.X, (float)delta * Acceleration);
+				CurrentSpeed = Mathf.MoveToward(CurrentSpeed, 0, (float)delta * Deceleration);
 			}
-			isMoveRight = _isMoveRight;
-		}
-		else
-		{
-			CurrentSpeed = Mathf.MoveToward(CurrentSpeed, 0, (float)delta * Deceleration);
+			velocity.X = CurrentSpeed;
+			
 		}
 
-		velocity.X = CurrentSpeed;
 		this.Velocity = velocity;
 		MoveAndSlide();
 
@@ -73,12 +81,24 @@ public partial class PlayerMovement : CharacterBody2D
 			if (collider.IsInGroup("Hurtable"))
 			{
 				HealthManager.Instance.TakeDamage(1);
+				// var knockbackDirection = (collision.GetPosition() - this.GlobalPosition).Normalized();
+				// GD.Print(knockbackDirection);
 
-				var knockbackDirection = (collision.GetPosition() - this.GlobalPosition).Normalized();
-				GD.Print(knockbackDirection);
-				var knockbackVelocity = knockbackDirection * HurtKnockback;
-				this.Velocity = -this.Velocity * knockbackDirection;
+				ApplyKnockback();
 			}
 		}
 	}
+
+	public async Task ApplyKnockback()
+	{
+		CanMove = false;
+		var direction = isMoveRight ? Vector2.Left : Vector2.Right;
+		this.Velocity = direction * KnockbackForce;
+		CurrentSpeed = 0f;
+
+		await Task.Delay(TimeSpan.FromMilliseconds(KnockbackDuration));
+
+		CanMove = true;
+	}
 }
+

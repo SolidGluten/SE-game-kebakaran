@@ -193,7 +193,7 @@ script = ExtResource("1_xi7oy")
 [node name="Player" parent="." instance=ExtResource("1_kvbv0")]
 position = Vector2(0, 119)
 DecelTime = 0.5
-HurtKnockback = 10000.0
+KnockbackDuration = 1000.0
 
 [node name="GameManager" parent="." instance=ExtResource("4_a1mqv")]
 
