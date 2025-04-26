@@ -1,10 +1,19 @@
-[gd_scene load_steps=12 format=4 uid="uid://daqdrr6ft7bls"]
+[gd_scene load_steps=15 format=4 uid="uid://daqdrr6ft7bls"]
 
 [ext_resource type="PackedScene" uid="uid://bp6ly210f2gls" path="res://Assets/player.tscn" id="1_kvbv0"]
 [ext_resource type="Script" path="res://Scripts/Door.cs" id="1_xi7oy"]
 [ext_resource type="PackedScene" uid="uid://1pbtqnffu74v" path="res://Assets/game_manager.tscn" id="4_a1mqv"]
 [ext_resource type="Texture2D" uid="uid://dciboji3vtvym" path="res://Sprites/LivingRoom.png" id="5_5g2ml"]
 [ext_resource type="PackedScene" uid="uid://cpocf5cb5704c" path="res://Assets/health_manager.tscn" id="5_iu2oc"]
+[ext_resource type="Texture2D" uid="uid://3aw434hdvrc5" path="res://Sprites/Smoke.png" id="5_n24ng"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1c8t1"]
+texture = ExtResource("5_n24ng")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_qekvk"]
+sources/0 = SubResource("TileSetAtlasSource_1c8t1")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dmyru"]
 resource_name = "Test Tileset"
@@ -201,6 +210,12 @@ KnockbackForce = 200.0
 [node name="HealthManager" parent="." instance=ExtResource("5_iu2oc")]
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Fire Layer" type="TileMapLayer" parent="Node2D"]
+z_index = 3
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_qekvk")
 
 [node name="Collision Layer" type="TileMapLayer" parent="Node2D"]
 z_index = 2
