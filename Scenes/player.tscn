@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbw2fxx2qbybo"]
+[gd_scene load_steps=12 format=3 uid="uid://bbw2fxx2qbybo"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.cs" id="1_1fb5y"]
 [ext_resource type="Texture2D" uid="uid://dn7kx225f72hm" path="res://Sprites/player-sprite.png" id="2_7jbvn"]
@@ -6,10 +6,6 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hkrug"]
 atlas = ExtResource("2_7jbvn")
-region = Rect2(0, 0, 20, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qp82d"]
-atlas = ExtResource("3_1na7x")
 region = Rect2(0, 0, 20, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eoee5"]
@@ -44,12 +40,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qp82d")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_eoee5")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 7.0
 }, {
@@ -83,11 +76,12 @@ Speed = 350.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_o0d3e")
-animation = &"walking"
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_u3btv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.7, 2.7)
 position_smoothing_speed = 10.0

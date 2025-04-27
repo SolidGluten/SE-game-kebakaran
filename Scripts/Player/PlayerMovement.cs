@@ -22,7 +22,7 @@ public partial class PlayerMovement : CharacterBody2D
 		if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta;
-			animatedSprite.Play("jump");
+			if(animatedSprite.Animation != "jump") animatedSprite.Play("jump");
 		}
 
 		// Handle Jump.
