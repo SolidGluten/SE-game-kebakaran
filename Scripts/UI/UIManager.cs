@@ -25,7 +25,7 @@ public partial class UIManager : Control
 
 	public void EnableItemUI(int item){
 		ItemTypes type = (ItemTypes)Enum.ToObject(typeof(ItemTypes), item);
-		
+
 		switch(type){
 			case ItemTypes.FireAxe:{
 				fireAxeImg.Visible = true;
@@ -41,4 +41,5 @@ public partial class UIManager : Control
 			}
 		}
 	}
+
 }

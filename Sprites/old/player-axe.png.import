@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7t5188n6uu27"
-path="res://.godot/imported/player-extinguisher.png-1b78ca58e51d10e55794cae5c5775fbe.ctex"
+uid="uid://b6kjxb5k464tf"
+path="res://.godot/imported/player-axe.png-a1518e8200cb571d25747fd34f368f07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/player-extinguisher.png"
-dest_files=["res://.godot/imported/player-extinguisher.png-1b78ca58e51d10e55794cae5c5775fbe.ctex"]
+source_file="res://Sprites/old/player-axe.png"
+dest_files=["res://.godot/imported/player-axe.png-a1518e8200cb571d25747fd34f368f07.ctex"]
 
 [params]
 

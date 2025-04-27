@@ -18,6 +18,6 @@ public abstract partial class Pickable : Area2D
 	}
 
 	public virtual void OnPickup(){
-		QueueFree();
+		this.QueueFree();
 	}
 }

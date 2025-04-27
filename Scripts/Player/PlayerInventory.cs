@@ -4,9 +4,10 @@ using System.Collections.Generic;
 
 public enum ItemTypes
 {
-	FireAxe = 0,
-	WetCloth = 1,
-	FireExtinguisher = 2
+	None = 0,
+	FireAxe = 1,
+	WetCloth = 2,
+	FireExtinguisher = 3
 }
 
 public partial class PlayerInventory : Node2D
@@ -41,6 +42,7 @@ public partial class PlayerInventory : Node2D
 	public void addItem(ItemTypes item){
 		itemList[item] = true;
 		EmitSignal("ItemAdded", (int)item);
+		changeItem(item);
 	}
 
 	public void useItem(ItemTypes item){
@@ -56,19 +58,21 @@ public partial class PlayerInventory : Node2D
 		currentItemType = item;
 		switch(item){
 			case ItemTypes.FireAxe:{
-				currentItem = (Usable) new FireAxe();
+				currentItem = new FireAxeTool();
 				break;
 			}
 			case ItemTypes.WetCloth:{
-				currentItem = (Usable) new WetCloth();
+				currentItem = new WetClotchTool();
 				break;
 			}
 			case ItemTypes.FireExtinguisher:{
-				currentItem = (Usable) new WetCloth();
+				currentItem = new FireExtinguisherTool();
+				break;
+			} default: {
 				break;
 			}
 		}
 
-		EmitSignal("ItemSwitched", (int)item);
+		// EmitSignal("ItemSwitched", (int)item);
 	}
 }

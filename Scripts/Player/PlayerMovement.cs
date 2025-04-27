@@ -8,10 +8,13 @@ public partial class PlayerMovement : CharacterBody2D
 	public const float JumpVelocity = -400.0f;
 
 	AnimatedSprite2D animatedSprite;
+
+	private PlayerInventory playerInventory;
 	
   public override void _Ready()
   {
     animatedSprite = this.GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		playerInventory = GetNode<PlayerInventory>("/root/PlayerInventory");
   }
 
 	public override void _PhysicsProcess(double delta)
@@ -22,7 +25,7 @@ public partial class PlayerMovement : CharacterBody2D
 		if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta;
-			if(animatedSprite.Animation != "jump") animatedSprite.Play("jump");
+			PlayJumpAnim();
 		}
 
 		// Handle Jump.
@@ -40,15 +43,90 @@ public partial class PlayerMovement : CharacterBody2D
 		{
 			velocity.X = direction.X * Speed;
 			animatedSprite.FlipH = !isFacingRight;
-			if(IsOnFloor()) animatedSprite.Play("walk");
+			PlayWalkAnim();
 		}
 		else
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			if(IsOnFloor()) animatedSprite.Play("idle");
+			PlayIdleAnim();
 		}
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public void PlayWalkAnim(){
+		if(!IsOnFloor()) return;
+		
+		var item = playerInventory.getCurrentItem();
+		switch (item)
+		{
+			case ItemTypes.FireAxe:{
+				animatedSprite.Play("walk_axe");
+				break;
+			}
+			case ItemTypes.WetCloth:{
+				animatedSprite.Play("walk_cloth");
+				break;
+			}
+			case ItemTypes.FireExtinguisher:{
+				animatedSprite.Play("walk_exting");
+				break;
+			}
+			default:{
+				animatedSprite.Play("walk");
+				break;
+			}
+		}
+	}
+
+	public void PlayIdleAnim(){
+		if(!IsOnFloor()) return;
+
+		var item = playerInventory.getCurrentItem();
+		switch (item)
+		{
+			case ItemTypes.FireAxe:{
+				animatedSprite.Play("idle_axe");
+				break;
+			}
+			case ItemTypes.WetCloth:{
+				animatedSprite.Play("idle_cloth");
+				break;
+			}
+			case ItemTypes.FireExtinguisher:{
+				animatedSprite.Play("idle_exting");
+				break;
+			}
+			default:{
+				animatedSprite.Play("idle");
+				break;
+			}
+		}
+	}
+
+	public void PlayJumpAnim(){
+		var item = playerInventory.getCurrentItem();
+		if(animatedSprite.Animation.ToString().Contains("jump")) return; // returns if already jumping
+
+		switch (item)
+		{
+			case ItemTypes.FireAxe:{
+				animatedSprite.Play("jump_axe");
+				break;
+			}
+			case ItemTypes.WetCloth:{
+				animatedSprite.Play("jump_cloth");
+				break;
+			}
+			case ItemTypes.FireExtinguisher:{
+				animatedSprite.Play("jump_exting");
+				break;
+			}
+			default:{
+				animatedSprite.Play("jump");
+				break;
+			}
+		}
 	}
 }
