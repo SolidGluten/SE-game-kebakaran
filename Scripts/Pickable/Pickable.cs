@@ -4,7 +4,7 @@ using System;
 public abstract partial class Pickable : Area2D
 {
 	protected PlayerInventory playerInventory;
-	public ItemTypes type;
+	[Export] public ItemTypes type;
 
   public override void _Ready()
   {
@@ -13,7 +13,7 @@ public abstract partial class Pickable : Area2D
   }
 
 	public void OnPlayerEnter(Node2D node){
-		playerInventory.setItem(type);
+		playerInventory.addItem(type);
 		OnPickup();
 	}
 

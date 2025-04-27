@@ -1,48 +1,66 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public enum ItemTypes
 {
 	FireAxe,
-	WetClotch,
+	WetCloth,
 	FireExtinguisher
 }
 
 public partial class PlayerInventory : Node2D
 {
-	public bool hasFireAxe = false;
-	public bool hasWetCloth = false;
-	public bool hasFireExtinguisher = false;
+	private Dictionary<ItemTypes, bool> itemList = new Dictionary<ItemTypes, bool>{
+		{ItemTypes.FireAxe, false},
+		{ItemTypes.WetCloth, false},
+		{ItemTypes.FireExtinguisher, false},
+	};
 
-	public void setItem(ItemTypes item){
-		switch(item){
-			case ItemTypes.FireAxe:{
-				hasFireAxe = true;
-				break;
-			}
-			case ItemTypes.WetClotch:{
-				hasWetCloth = true;
-				break;
-			}
-			case ItemTypes.FireExtinguisher:{
-				hasFireExtinguisher = true;
-				break;
-			}
+	private ItemTypes currentItemType;
+	private Usable currentItem;
+
+  public override void _Process(double delta)
+  {
+		if(Input.IsActionJustPressed("switch_axe")){
+			changeItem(ItemTypes.FireAxe);
+		} else if(Input.IsActionJustPressed("switch_cloth")){
+			changeItem(ItemTypes.WetCloth);
+		} else if(Input.IsActionJustPressed("switch_extinguisher")){
+			changeItem(ItemTypes.FireExtinguisher);
 		}
+  }
+
+	public ItemTypes getCurrentItem(){
+		return currentItemType;
+	}
+
+	public void addItem(ItemTypes item){
+		itemList[item] = true;
 	}
 
 	public void useItem(ItemTypes item){
+		if(itemList[item] == false) return;
+
+		itemList[item] = false;
+		currentItem.Use();
+	}
+
+	public void changeItem(ItemTypes item){
+		if(itemList[item] == false) return;
+
+		currentItemType = item;
 		switch(item){
 			case ItemTypes.FireAxe:{
-				hasFireAxe = false;
+				currentItem = (Usable) new FireAxe();
 				break;
 			}
-			case ItemTypes.WetClotch:{
-				hasWetCloth = false;
+			case ItemTypes.WetCloth:{
+				currentItem = (Usable) new WetCloth();
 				break;
 			}
 			case ItemTypes.FireExtinguisher:{
-				hasFireExtinguisher = false;
+				currentItem = (Usable) new WetCloth();
 				break;
 			}
 		}

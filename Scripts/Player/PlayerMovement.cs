@@ -40,7 +40,7 @@ public partial class PlayerMovement : CharacterBody2D
 		{
 			velocity.X = direction.X * Speed;
 			animatedSprite.FlipH = !isFacingRight;
-			if(IsOnFloor()) animatedSprite.Play("walking");
+			if(IsOnFloor()) animatedSprite.Play("walk");
 		}
 		else
 		{
