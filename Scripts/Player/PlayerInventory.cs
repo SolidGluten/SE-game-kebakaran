@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public enum ItemTypes
 {
-	FireAxe,
-	WetCloth,
-	FireExtinguisher
+	FireAxe = 0,
+	WetCloth = 1,
+	FireExtinguisher = 2
 }
 
 public partial class PlayerInventory : Node2D
@@ -19,6 +19,9 @@ public partial class PlayerInventory : Node2D
 
 	private ItemTypes currentItemType;
 	private Usable currentItem;
+
+	[Signal] public delegate void ItemAddedEventHandler(int item);
+	[Signal] public delegate void ItemChangedEventHandler(int item);
 
   public override void _Process(double delta)
   {
@@ -37,6 +40,7 @@ public partial class PlayerInventory : Node2D
 
 	public void addItem(ItemTypes item){
 		itemList[item] = true;
+		EmitSignal("ItemAdded", (int)item);
 	}
 
 	public void useItem(ItemTypes item){
@@ -64,5 +68,7 @@ public partial class PlayerInventory : Node2D
 				break;
 			}
 		}
+
+		EmitSignal("ItemSwitched", (int)item);
 	}
 }

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://daqdrr6ft7bls"]
+[gd_scene load_steps=8 format=4 uid="uid://daqdrr6ft7bls"]
 
 [ext_resource type="PackedScene" uid="uid://bbw2fxx2qbybo" path="res://Scenes/player.tscn" id="2_ni8e5"]
 [ext_resource type="PackedScene" uid="uid://b50w0pxul13wb" path="res://Scenes/fire_extinguisher.tscn" id="2_rkysu"]
+[ext_resource type="PackedScene" uid="uid://dcxgxf8qeioqg" path="res://Scenes/UI.tscn" id="4_6mjql"]
 [ext_resource type="Texture2D" uid="uid://dciboji3vtvym" path="res://Sprites/LivingRoom.png" id="5_5g2ml"]
 
 [sub_resource type="CSharpScript" id="CSharpScript_popgn"]
@@ -91,6 +92,10 @@ sources/0 = SubResource("TileSetAtlasSource_cwxi1")
 
 [node name="Node2D" type="Node2D"]
 script = SubResource("CSharpScript_popgn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("4_6mjql")]
 
 [node name="TilemapCollection" type="Node" parent="."]
 
