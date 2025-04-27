@@ -3,7 +3,7 @@ using System;
 
 public partial class FireAxe : Pickable
 {
-	public override void OnPickup(){
-
+	public FireAxe(){
+		this.type = ItemTypes.FireAxe;
 	}
 }

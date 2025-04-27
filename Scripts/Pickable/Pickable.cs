@@ -1,7 +1,23 @@
 using Godot;
 using System;
 
-public abstract partial class Pickable : Node2D
+public abstract partial class Pickable : Area2D
 {
-	public abstract void OnPickup();
+	protected PlayerInventory playerInventory;
+	public ItemTypes type;
+
+  public override void _Ready()
+  {
+		playerInventory = GetNode<PlayerInventory>("/root/PlayerInventory");
+		this.BodyEntered += OnPlayerEnter;
+  }
+
+	public void OnPlayerEnter(Node2D node){
+		playerInventory.setItem(type);
+		OnPickup();
+	}
+
+	public virtual void OnPickup(){
+		QueueFree();
+	}
 }

@@ -3,7 +3,7 @@ using System;
 
 public partial class WetCloth : Pickable
 {
-	public override void OnPickup(){
-
+	public WetCloth(){
+		this.type = ItemTypes.WetClotch;
 	}
 }
