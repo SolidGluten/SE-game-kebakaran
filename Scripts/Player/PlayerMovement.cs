@@ -22,6 +22,7 @@ public partial class PlayerMovement : CharacterBody2D
 		if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta;
+			animatedSprite.Play("jump");
 		}
 
 		// Handle Jump.
@@ -38,14 +39,13 @@ public partial class PlayerMovement : CharacterBody2D
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
-			animatedSprite.Play("walking");
 			animatedSprite.FlipH = !isFacingRight;
+			if(IsOnFloor()) animatedSprite.Play("walking");
 		}
 		else
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			animatedSprite.Play("idle");
-			
+			if(IsOnFloor()) animatedSprite.Play("idle");
 		}
 
 		Velocity = velocity;
