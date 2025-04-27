@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b50w0pxul13wb"]
+
+[ext_resource type="Texture2D" uid="uid://cga000dobasli" path="res://Sprites/TEMP_fire_extinguisher.png" id="1_rtn7o"]
+
+[node name="FireExtinguisher" type="Node2D"]
+position = Vector2(8, 0)
+scale = Vector2(0.01, 0.01)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rtn7o")

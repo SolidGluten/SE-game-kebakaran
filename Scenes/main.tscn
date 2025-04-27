@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://daqdrr6ft7bls"]
+[gd_scene load_steps=7 format=4 uid="uid://daqdrr6ft7bls"]
 
 [ext_resource type="PackedScene" uid="uid://bbw2fxx2qbybo" path="res://Scenes/player.tscn" id="2_ni8e5"]
+[ext_resource type="PackedScene" uid="uid://b50w0pxul13wb" path="res://Scenes/fire_extinguisher.tscn" id="2_rkysu"]
 [ext_resource type="Texture2D" uid="uid://dciboji3vtvym" path="res://Sprites/LivingRoom.png" id="5_5g2ml"]
 
 [sub_resource type="CSharpScript" id="CSharpScript_popgn"]
@@ -95,13 +96,15 @@ script = SubResource("CSharpScript_popgn")
 
 [node name="CollisionLayer" type="TileMapLayer" parent="TilemapCollection"]
 texture_filter = 1
-scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AADz/wQAAAACAAMAAAD0/wQAAAACAAMAAAD1/wQAAAACAAMAAAD2/wQAAAACAAMAAAD3/wQAAAACAAMAAAD4/wQAAAACAAMAAAD5/wQAAAACAAMAAAD6/wQAAAACAAMAAAD7/wQAAAACAAMAAAD8/wQAAAACAAMAAAD9/wQAAAACAAMAAAD+/wQAAAACAAMAAAD//wQAAAACAAMAAAAAAAQAAAACAAMAAAACAAQAAAACAAMAAAADAAQAAAACAAMAAAAHAAQAAAACAAMAAAAIAAQAAAACAAMAAAAJAAQAAAACAAMAAAAKAAQAAAACAAMAAAALAAQAAAACAAMAAAAMAAQAAAACAAMAAAANAAQAAAACAAMAAAABAAQAAAACAAMAAAAEAAQAAAACAAMAAAAFAAQAAAACAAMAAAAGAAQAAAACAAMAAAA=")
 tile_set = SubResource("TileSet_ox6lp")
 
 [node name="BackgroundLayer" type="TileMapLayer" parent="TilemapCollection"]
 
 [node name="MiscLayer" type="TileMapLayer" parent="TilemapCollection"]
+
+[node name="FireExtinguisher" parent="TilemapCollection" instance=ExtResource("2_rkysu")]
+position = Vector2(24, 48)
 
 [node name="Player" parent="." instance=ExtResource("2_ni8e5")]
 position = Vector2(0, 48)
