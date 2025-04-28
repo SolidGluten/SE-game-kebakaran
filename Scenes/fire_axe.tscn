@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6pyfrd7kasyd"]
+
+[ext_resource type="Script" path="res://Scripts/Pickable/FireAxe.cs" id="1_lrbok"]
+[ext_resource type="Texture2D" uid="uid://cga000dobasli" path="res://Sprites/TEMP_fire_extinguisher.png" id="2_0kbiu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0akn"]
+
+[node name="FireAxe" type="Area2D"]
+position = Vector2(8, 0)
+script = ExtResource("1_lrbok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_0kbiu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.4, 0.5)
+shape = SubResource("CapsuleShape2D_y0akn")
