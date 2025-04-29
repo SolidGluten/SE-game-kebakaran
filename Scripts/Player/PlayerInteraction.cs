@@ -23,11 +23,30 @@ public partial class PlayerInteraction : Node2D
 
 		if (
 			Input.IsActionJustPressed("interact") &&
-			rayCast.IsColliding() && 
-			playerInventory.getCurrentItem() == ItemTypes.FireAxe)
+			rayCast.IsColliding())
 		{
 			Object collider = rayCast.GetCollider();
-			if (collider is Breakable obj) obj.Break();	
+			switch (playerInventory.getCurrentItem())
+			{
+				case ItemTypes.FireAxe:
+					{
+						if (collider is Breakable obj) obj.Break();
+						GD.Print("Using Fire Axe");
+						break;
+					}
+				case ItemTypes.FireExtinguisher:
+					{
+						if (collider is Extinguishable obj) obj.Extinguish();
+						GD.Print("Using Fire Extinguisher");
+						break;
+					}
+				case ItemTypes.WetCloth:
+					{
+						GD.Print("Using Wet Cloth");
+						break;
+					}
+				default: break;
+			}
 		}
 	}
 }
