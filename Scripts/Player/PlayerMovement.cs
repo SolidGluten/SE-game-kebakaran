@@ -4,8 +4,8 @@ using System;
 public partial class PlayerMovement : CharacterBody2D
 {
 	[Export] public float Speed = 300.0f;
+	[Export] public float JumpVelocity = -400.0f;
 	public bool isFacingRight = true;
-	public const float JumpVelocity = -400.0f;
 
 	AnimatedSprite2D animatedSprite;
 
@@ -37,11 +37,12 @@ public partial class PlayerMovement : CharacterBody2D
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-		isFacingRight = direction.X > 0;
+		
 
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
+			isFacingRight = direction.X > 0;
 			animatedSprite.FlipH = !isFacingRight;
 			PlayWalkAnim();
 		}
@@ -107,7 +108,7 @@ public partial class PlayerMovement : CharacterBody2D
 
 	public void PlayJumpAnim(){
 		var item = playerInventory.getCurrentItem();
-		if(animatedSprite.Animation.ToString().Contains("jump")) return; // returns if already jumping
+		// if(animatedSprite.Animation.ToString().Contains("jump")) return; // returns if already jumping
 
 		switch (item)
 		{

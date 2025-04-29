@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://daqdrr6ft7bls"]
+[gd_scene load_steps=11 format=4 uid="uid://daqdrr6ft7bls"]
 
 [ext_resource type="PackedScene" uid="uid://bbw2fxx2qbybo" path="res://Scenes/player.tscn" id="2_ni8e5"]
 [ext_resource type="PackedScene" uid="uid://b50w0pxul13wb" path="res://Scenes/fire_extinguisher.tscn" id="2_rkysu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dciboji3vtvym" path="res://Sprites/LivingRoom.png" id="5_5g2ml"]
 [ext_resource type="PackedScene" uid="uid://c6pyfrd7kasyd" path="res://Scenes/fire_axe.tscn" id="5_mwwg1"]
 [ext_resource type="PackedScene" uid="uid://dsubl3kxue8qq" path="res://Scenes/wet_cloth.tscn" id="6_eugpp"]
+[ext_resource type="PackedScene" uid="uid://b2eywcjh6wpxb" path="res://Scenes/crate.tscn" id="7_jguv1"]
 
 [sub_resource type="CSharpScript" id="CSharpScript_popgn"]
 script/source = "using Godot;
@@ -110,14 +111,17 @@ tile_set = SubResource("TileSet_ox6lp")
 
 [node name="MiscLayer" type="TileMapLayer" parent="TilemapCollection"]
 
-[node name="FireExtinguisher" parent="TilemapCollection" instance=ExtResource("2_rkysu")]
-position = Vector2(24, 48)
-
 [node name="Player" parent="." instance=ExtResource("2_ni8e5")]
 position = Vector2(0, 48)
 
 [node name="FireAxe" parent="." instance=ExtResource("5_mwwg1")]
 position = Vector2(54, 49)
 
+[node name="FireExtinguisher" parent="." instance=ExtResource("2_rkysu")]
+position = Vector2(24, 48)
+
 [node name="WetCloth" parent="." instance=ExtResource("6_eugpp")]
 position = Vector2(83, 49)
+
+[node name="Crate" parent="." instance=ExtResource("7_jguv1")]
+position = Vector2(-48, 52)
