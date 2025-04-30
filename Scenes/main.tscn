@@ -100,7 +100,6 @@ sources/0 = SubResource("TileSetAtlasSource_cwxi1")
 script = SubResource("CSharpScript_popgn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("4_6mjql")]
 

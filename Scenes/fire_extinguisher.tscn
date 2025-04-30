@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b50w0pxul13wb"]
 
 [ext_resource type="Script" path="res://Scripts/Pickable/FireExtinguisher.cs" id="1_javla"]
-[ext_resource type="Texture2D" uid="uid://cga000dobasli" path="res://Sprites/TEMP_fire_extinguisher.png" id="1_rtn7o"]
+[ext_resource type="Texture2D" uid="uid://blq1lp1b8qpqe" path="res://Sprites/tools/fire_extinguisher.png" id="2_2j1tn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0akn"]
 
@@ -10,8 +10,7 @@ position = Vector2(8, 0)
 script = ExtResource("1_javla")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.01, 0.01)
-texture = ExtResource("1_rtn7o")
+texture = ExtResource("2_2j1tn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.4, 0.5)
