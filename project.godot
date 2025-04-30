@@ -18,6 +18,7 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 PlayerInventory="*res://Scripts/Player/PlayerInventory.cs"
+PlayerHealth="*res://Scripts/Player/PlayerHealth.cs"
 
 [dotnet]
 

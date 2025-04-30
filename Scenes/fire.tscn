@@ -1,16 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://kees8eif5ney"]
+[gd_scene load_steps=6 format=3 uid="uid://kees8eif5ney"]
 
 [ext_resource type="Texture2D" uid="uid://b6ehhlro6y2bj" path="res://Sprites/icon.svg" id="1_xdm6g"]
 [ext_resource type="Script" path="res://Scripts/Extinguishable/Fire.cs" id="2_wdhss"]
+[ext_resource type="Script" path="res://Scripts/Hurtable/Hurtable.cs" id="3_1xrkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocm4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4w2h"]
 
 [node name="Fire" type="StaticBody2D"]
 script = ExtResource("2_wdhss")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_ocm4x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.156, 0.156)
 texture = ExtResource("1_xdm6g")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("3_1xrkx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_t4w2h")
+debug_color = Color(0.976173, 0, 0.41387, 0.42)
