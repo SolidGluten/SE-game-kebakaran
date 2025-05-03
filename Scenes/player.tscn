@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bbw2fxx2qbybo"]
+[gd_scene load_steps=36 format=3 uid="uid://bbw2fxx2qbybo"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.cs" id="1_1fb5y"]
 [ext_resource type="Texture2D" uid="uid://c17vqlkhy4kj3" path="res://Sprites/player-walk.png" id="2_ixlhm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dljpnl6qupmox" path="res://Sprites/player-axe2.png" id="4_faeuq"]
 [ext_resource type="Texture2D" uid="uid://by2ylyv8j87yh" path="res://Sprites/player-cloth.png" id="4_pc8cc"]
 [ext_resource type="Texture2D" uid="uid://vxo6cpebfusp" path="res://Sprites/player-extinguisher2.png" id="5_uvhby"]
+[ext_resource type="Script" path="res://Scripts/Player/SmokeDetector.cs" id="7_ikvc1"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerInteraction.cs" id="7_lbcv0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0c5s"]
@@ -243,6 +244,10 @@ animations = [{
 radius = 8.0
 height = 26.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4ofe"]
+radius = 6.0
+height = 20.0
+
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
 script = ExtResource("1_1fb5y")
@@ -256,6 +261,16 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_u3btv")
+
+[node name="SmokeDetector" type="Area2D" parent="."]
+position = Vector2(0, 3)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("7_ikvc1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmokeDetector"]
+shape = SubResource("CapsuleShape2D_e4ofe")
+debug_color = Color(0.957805, 6.73831e-07, 0.530586, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.7, 2.7)

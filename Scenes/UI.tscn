@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcxgxf8qeioqg"]
+[gd_scene load_steps=7 format=3 uid="uid://dcxgxf8qeioqg"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UIManager.cs" id="1_70hco"]
 [ext_resource type="Texture2D" uid="uid://crxc2yfd2f45d" path="res://Sprites/tools/fire_axe.png" id="2_gamh4"]
 [ext_resource type="Texture2D" uid="uid://blq1lp1b8qpqe" path="res://Sprites/tools/fire_extinguisher.png" id="3_w7hmr"]
 [ext_resource type="Texture2D" uid="uid://cuqq04lr52exr" path="res://Sprites/tools/wet_cloth.png" id="4_r46t8"]
 [ext_resource type="Texture2D" uid="uid://d1f7f317j83ke" path="res://Sprites/heart/heart_full.png" id="5_hull5"]
-[ext_resource type="Texture2D" uid="uid://b6ehhlro6y2bj" path="res://Sprites/icon.svg" id="6_wmnma"]
-[ext_resource type="Script" path="res://Scripts/UI/GuideTrigger.cs" id="7_lb6je"]
+[ext_resource type="PackedScene" uid="uid://ddhqvxohaf2mq" path="res://Scenes/guide_UI.tscn" id="6_88n7v"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -63,35 +62,5 @@ layout_mode = 2
 texture = ExtResource("5_hull5")
 expand_mode = 3
 
-[node name="GuideContainer" type="Control" parent="."]
+[node name="GuideContainer" parent="." instance=ExtResource("6_88n7v")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GuideModal" type="PanelContainer" parent="GuideContainer"]
-visible = false
-layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GuideTrigger" type="Button" parent="GuideContainer"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -120.0
-offset_top = 48.0
-offset_right = 16.0
-offset_bottom = 184.0
-grow_horizontal = 0
-scale = Vector2(0.5, 0.5)
-focus_mode = 0
-toggle_mode = true
-button_pressed = true
-icon = ExtResource("6_wmnma")
-script = ExtResource("7_lb6je")
