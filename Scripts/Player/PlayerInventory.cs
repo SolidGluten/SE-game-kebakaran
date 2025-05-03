@@ -24,53 +24,74 @@ public partial class PlayerInventory : Node2D
 	[Signal] public delegate void ItemAddedEventHandler(int item);
 	[Signal] public delegate void ItemChangedEventHandler(int item);
 
-  public override void _Process(double delta)
+  public override void _Ready()
   {
-		if(Input.IsActionJustPressed("switch_axe")){
+			
+	}
+
+	public override void _Process(double delta)
+	{
+		if (Input.IsActionJustPressed("switch_axe"))
+		{
 			changeItem(ItemTypes.FireAxe);
-		} else if(Input.IsActionJustPressed("switch_cloth")){
-			changeItem(ItemTypes.WetCloth);
-		} else if(Input.IsActionJustPressed("switch_extinguisher")){
+		}
+		else if (Input.IsActionJustPressed("switch_extinguisher"))
+		{
 			changeItem(ItemTypes.FireExtinguisher);
 		}
-  }
+		else if (Input.IsActionJustPressed("switch_cloth"))
+		{
+			changeItem(ItemTypes.WetCloth);
+		}
+	}
 
-	public ItemTypes getCurrentItem(){
+	public ItemTypes getCurrentItem()
+	{
 		return currentItemType;
 	}
 
-	public void addItem(ItemTypes item){
+	public void addItem(ItemTypes item)
+	{
 		itemList[item] = true;
 		EmitSignal("ItemAdded", (int)item);
 		changeItem(item);
 	}
 
-	public void useItem(ItemTypes item){
-		if(itemList[item] == false) return;
+	public void useItem(ItemTypes item)
+	{
+		if (itemList[item] == false) return;
 
 		itemList[item] = false;
 		currentItem.Use();
 	}
 
-	public void changeItem(ItemTypes item){
-		if(itemList[item] == false) return;
+	public void changeItem(ItemTypes item)
+	{
+		if (itemList[item] == false) return;
 
 		currentItemType = item;
-		switch(item){
-			case ItemTypes.FireAxe:{
-				currentItem = new FireAxeTool();
-				break;
-			}
-			case ItemTypes.WetCloth:{
-				currentItem = new WetClotchTool();
-				break;
-			}
-			case ItemTypes.FireExtinguisher:{
-				currentItem = new FireExtinguisherTool();
-				break;
-			} default: {
-				break;
-			}
+		switch (item)
+		{
+			case ItemTypes.FireAxe:
+				{
+					currentItem = new FireAxeTool();
+					break;
+				}
+			case ItemTypes.FireExtinguisher:
+				{
+					currentItem = new FireExtinguisherTool();
+					break;
+				}
+			case ItemTypes.WetCloth:
+				{
+					currentItem = new WetClotchTool();
+					break;
+				}
+			default:
+				{
+					currentItem = null;
+					break;
+				}
 		}
 
 		// EmitSignal("ItemSwitched", (int)item);

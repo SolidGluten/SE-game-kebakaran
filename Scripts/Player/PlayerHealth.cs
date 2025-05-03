@@ -7,6 +7,7 @@ public partial class PlayerHealth : Node
 	public int currentHealth;
 
 	[Signal] public delegate void OnHealthChangeEventHandler(int dmg);
+	[Signal] public delegate void OnDeathEventHandler();
 
   public override void _Ready()
   {
@@ -16,6 +17,12 @@ public partial class PlayerHealth : Node
 	public void Hurt(int dmg){
 		currentHealth = Mathf.Max(0, currentHealth - dmg);
 		EmitSignal("OnHealthChange", currentHealth);		
+		
+		if(currentHealth <= 0){
+			EmitSignal("OnDeath");
+			currentHealth = maxHealth;
+		} else {
+		}
 	}
 
 	public void Heal(int hp){

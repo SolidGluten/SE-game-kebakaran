@@ -75,13 +75,23 @@ public partial class UIManager : Control
 		foreach (var heart in heartList)
 		{
 			heart.Texture = GD.Load<Texture2D>(heartEmptyRes);
-			GD.Print("Test");
 		}
 
-		for(int i = 0; i < currentHealth; i++){
+		for (int i = 0; i < currentHealth; i++)
+		{
 			if (i >= heartList.Count()) break;
 			heartList[i].Texture = GD.Load<Texture2D>(heartFullRes);
 		}
 	}
+
+	public override void _ExitTree()
+	{
+		if (playerInventory != null)
+			playerInventory.ItemAdded -= EnableItemUI;
+
+		if (playerHealth != null)
+			playerHealth.OnHealthChange -= SyncHealthUI;
+	}
+
 
 }
