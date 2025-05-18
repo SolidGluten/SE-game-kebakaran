@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b2eywcjh6wpxb" path="res://Scenes/crate.tscn" id="7_jguv1"]
 [ext_resource type="PackedScene" uid="uid://kees8eif5ney" path="res://Scenes/fire.tscn" id="8_sr4sf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cwxi1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbbtj"]
 texture = ExtResource("5_5g2ml")
 0:0/0 = 0
 1:0/0 = 0
@@ -68,11 +68,11 @@ texture = ExtResource("5_5g2ml")
 
 [sub_resource type="TileSet" id="TileSet_ox6lp"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_cwxi1")
+sources/0 = SubResource("TileSetAtlasSource_dbbtj")
 
 [sub_resource type="TileSet" id="TileSet_2157r"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ymi47"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oanll"]
 texture = ExtResource("3_y7wes")
 0:0/0 = 0
 1:0/0 = 0
@@ -146,13 +146,13 @@ physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 2
 custom_data_layer_0/name = "is_smoke"
 custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_ymi47")
+sources/0 = SubResource("TileSetAtlasSource_oanll")
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("4_6mjql")]
+[node name="Main UI" parent="CanvasLayer" instance=ExtResource("4_6mjql")]
 
 [node name="TilemapCollection" type="Node" parent="."]
 

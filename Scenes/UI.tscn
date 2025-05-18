@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d1f7f317j83ke" path="res://Sprites/heart/heart_full.png" id="5_hull5"]
 [ext_resource type="PackedScene" uid="uid://ddhqvxohaf2mq" path="res://Scenes/guide_UI.tscn" id="6_88n7v"]
 
-[node name="Control" type="Control"]
+[node name="Main UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

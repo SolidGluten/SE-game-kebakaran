@@ -26,6 +26,7 @@ public partial class PlayerInteraction : Node2D
 			rayCast.IsColliding())
 		{
 			Object collider = rayCast.GetCollider();
+
 			switch (playerInventory.getCurrentItem())
 			{
 				case ItemTypes.FireAxe:

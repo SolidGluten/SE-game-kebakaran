@@ -251,7 +251,8 @@ height = 20.0
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
 script = ExtResource("1_1fb5y")
-Speed = 270.0
+Speed = 150.0
+JumpVelocity = -300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

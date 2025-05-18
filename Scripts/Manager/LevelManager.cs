@@ -21,7 +21,21 @@ public partial class LevelManager : Node
 
 	private void ResetCurrentScene()
 	{
-		GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);	
+		GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
+	}
+
+	public void NextLevel(string levelPath)
+	{
+		PackedScene scene = GD.Load<PackedScene>(levelPath);
+
+		if (scene != null)
+		{
+			GetTree().ChangeSceneToPacked(scene);
+		}
+		else
+		{
+			GD.PrintErr("Failed to load level at: " + levelPath);
+		}
 	}
 
 	public override void _ExitTree()
