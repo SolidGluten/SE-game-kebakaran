@@ -7,6 +7,9 @@ public partial class PlayerMovement : CharacterBody2D
 	[Export] public float JumpVelocity = -400.0f;
 	public bool isFacingRight = true;
 
+	[Export] public float cayoteeDuration = 0.2f; //seconds
+	private float cayoteeTimer;
+
 	private Vector2 knockVelocity;
 	[Export] public float knockDuration = 0.1f; //seconds
 	private float knockTimer;
@@ -27,16 +30,24 @@ public partial class PlayerMovement : CharacterBody2D
 
 		if (!IsOnFloor())
 		{
+			cayoteeTimer -= (float)delta;
 			velocity += GetGravity() * (float)delta;
 			PlayJumpAnim();
 		}
+		else
+		{
+			cayoteeTimer = cayoteeDuration;
+		}
 
-		if (Input.IsActionJustPressed("jump_action") && IsOnFloor())
+		GD.Print(cayoteeTimer);
+
+		if (Input.IsActionJustPressed("jump_action") && (IsOnFloor() || cayoteeTimer > 0))
 		{
 			velocity.Y = JumpVelocity;
 		}
 
 		Vector2 direction = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+
 
 		if (knockTimer > 0)
 		{

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://ngiktj1fdyqj"]
+[gd_scene load_steps=16 format=4 uid="uid://ngiktj1fdyqj"]
 
 [ext_resource type="PackedScene" uid="uid://dcxgxf8qeioqg" path="res://Scenes/UI.tscn" id="1_65wqc"]
 [ext_resource type="Texture2D" uid="uid://biyblvuihgfp6" path="res://Sprites/environment.png" id="2_h2weh"]
@@ -14,7 +14,6 @@ texture = ExtResource("2_h2weh")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
-4:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
@@ -25,12 +24,14 @@ texture = ExtResource("2_h2weh")
 2:2/0 = 0
 3:2/0 = 0
 4:2/0 = 0
-6:2/0 = 0
 0:3/0 = 0
 1:3/0 = 0
 2:3/0 = 0
 3:3/0 = 0
 4:3/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_5xjvv"]
 sources/0 = SubResource("TileSetAtlasSource_5qj4s")
@@ -75,6 +76,35 @@ texture = ExtResource("2_h2weh")
 [sub_resource type="TileSet" id="TileSet_gh3pd"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_oj5fd")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rqxrs"]
+texture = ExtResource("2_h2weh")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_16x6t"]
+sources/0 = SubResource("TileSetAtlasSource_rqxrs")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqur0"]
 texture = ExtResource("3_gljvb")
@@ -170,6 +200,7 @@ tile_map_data = PackedByteArray("AAD9/wUAAQABAAMAAAD+/wUAAQABAAMAAAD//wUAAQABAAM
 tile_set = SubResource("TileSet_gh3pd")
 
 [node name="MiscLayer" type="TileMapLayer" parent="TilemapCollection"]
+tile_set = SubResource("TileSet_16x6t")
 
 [node name="SmokeLayer" type="TileMapLayer" parent="TilemapCollection"]
 modulate = Color(1, 1, 1, 0.392157)
