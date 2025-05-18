@@ -17,11 +17,11 @@ grow_vertical = 2
 script = ExtResource("1_70hco")
 
 [node name="ToolContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 56.0
-offset_top = 128.0
-offset_right = 272.0
-offset_bottom = 208.0
+layout_mode = 1
+offset_left = 256.0
+offset_top = 40.0
+offset_right = 472.0
+offset_bottom = 120.0
 theme_override_constants/separation = -21
 
 [node name="FireAxeImage" type="TextureRect" parent="ToolContainer"]
@@ -41,11 +41,12 @@ texture = ExtResource("4_r46t8")
 expand_mode = 3
 
 [node name="HealthContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
+layout_mode = 1
 offset_left = 64.0
-offset_top = 64.0
+offset_top = 48.0
 offset_right = 256.0
-offset_bottom = 120.0
+offset_bottom = 104.0
+scale = Vector2(1.12, 1.12)
 
 [node name="TextureRect" type="TextureRect" parent="HealthContainer"]
 layout_mode = 2

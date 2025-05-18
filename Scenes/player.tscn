@@ -255,6 +255,7 @@ Speed = 150.0
 JumpVelocity = -300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 4
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_o0d3e")
 animation = &"idle"
