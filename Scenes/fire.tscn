@@ -4,6 +4,9 @@
 [ext_resource type="Script" path="res://Scripts/Extinguishable/Fire.cs" id="2_wdhss"]
 [ext_resource type="Script" path="res://Scripts/Hurtable/Hurtable.cs" id="3_1xrkx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4w2h"]
+size = Vector2(16.5, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocm4x"]
 size = Vector2(15.5556, 21.1111)
 
@@ -43,23 +46,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4w2h"]
-size = Vector2(16.5, 20)
-
 [node name="Fire" type="StaticBody2D"]
 script = ExtResource("2_wdhss")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-scale = Vector2(0.9, 0.9)
-shape = SubResource("RectangleShape2D_ocm4x")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -7)
-sprite_frames = SubResource("SpriteFrames_ft3gv")
-animation = &"fire"
-autoplay = "fire"
-frame_progress = 0.0344951
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(0, -7)
@@ -69,3 +57,16 @@ script = ExtResource("3_1xrkx")
 position = Vector2(-0.25, 6)
 shape = SubResource("RectangleShape2D_t4w2h")
 debug_color = Color(0.976173, 0, 0.41387, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_ocm4x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_ft3gv")
+animation = &"fire"
+autoplay = "fire"
+frame_progress = 0.0344951

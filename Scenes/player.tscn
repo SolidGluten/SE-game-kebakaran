@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bbw2fxx2qbybo"]
+[gd_scene load_steps=37 format=3 uid="uid://bbw2fxx2qbybo"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.cs" id="1_1fb5y"]
 [ext_resource type="Texture2D" uid="uid://c17vqlkhy4kj3" path="res://Sprites/player-walk.png" id="2_ixlhm"]
@@ -248,6 +248,9 @@ height = 26.0
 radius = 6.0
 height = 20.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y11f"]
+size = Vector2(0.5, 2)
+
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
 script = ExtResource("1_1fb5y")
@@ -281,5 +284,7 @@ position_smoothing_speed = 10.0
 [node name="Head" type="Node2D" parent="."]
 script = ExtResource("7_lbcv0")
 
-[node name="RayCast2D" type="RayCast2D" parent="Head"]
+[node name="ShapeCast2D" type="ShapeCast2D" parent="Head"]
+shape = SubResource("RectangleShape2D_8y11f")
 target_position = Vector2(25, 0)
+collision_mask = 3

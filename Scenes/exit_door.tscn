@@ -35,6 +35,7 @@ animations = [{
 size = Vector2(28, 39)
 
 [node name="Exit Door" type="Area2D"]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("1_yqpbi")
 nextLevelPath = "res://Scenes/Level/level_2.tscn"
 
@@ -48,6 +49,7 @@ position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_gndb4")
 
 [node name="Exit Sign" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(0, -22)
 scale = Vector2(0.479999, 0.479999)
 texture = ExtResource("3_w41bl")

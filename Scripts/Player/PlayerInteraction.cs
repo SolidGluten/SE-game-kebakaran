@@ -1,16 +1,18 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Xml.XPath;
 
 public partial class PlayerInteraction : Node2D
 {
-	private RayCast2D rayCast;
+	private ShapeCast2D shapeCast;
 	private PlayerMovement playerMovement;
 	private PlayerInventory playerInventory;
 	public float rayCastLength = 25f;
 
 	public override void _Ready()
 	{
-		rayCast = GetNode<RayCast2D>("./RayCast2D");
+		shapeCast = GetNode<ShapeCast2D>("./ShapeCast2D");
 		playerMovement = GetNode<PlayerMovement>("./..");
 		playerInventory = GetNode<PlayerInventory>("/root/PlayerInventory");
 	}
@@ -19,15 +21,27 @@ public partial class PlayerInteraction : Node2D
 	{
 		Vector2 newTargetPos = new Vector2();
 		newTargetPos.X = rayCastLength * (playerMovement.isFacingRight ? 1 : -1);
-		rayCast.TargetPosition = newTargetPos;
-
+		shapeCast.TargetPosition = newTargetPos;
+		
 		if (
-			Input.IsActionJustPressed("interact") &&
-			rayCast.IsColliding())
+			Input.IsActionJustPressed("interact")
+			&& shapeCast.IsColliding()
+			)
 		{
-			Object collider = rayCast.GetCollider();
+			// Object collider = rayCast.GetCollider();
+			var collision_count = shapeCast.GetCollisionCount();
+			for (int i = 0; i < collision_count; i++)
+			{
+				Object collider = shapeCast.GetCollider(i);
+				GD.Print((collider as Node).Name);
+				HandleCollision(collider);
+			}
+		}
+	}
 
-			switch (playerInventory.getCurrentItem())
+	public void HandleCollision(Object collider)
+	{
+		switch (playerInventory.getCurrentItem())
 			{
 				case ItemTypes.FireAxe:
 					{
@@ -48,6 +62,7 @@ public partial class PlayerInteraction : Node2D
 					}
 				default: break;
 			}
-		}
 	}
 }
+
+

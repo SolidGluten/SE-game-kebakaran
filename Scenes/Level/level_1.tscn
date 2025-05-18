@@ -240,4 +240,4 @@ position = Vector2(747, 30)
 position = Vector2(70, 60)
 
 [node name="Exit Door" parent="." instance=ExtResource("7_ebihd")]
-position = Vector2(862, 55)
+position = Vector2(862, 60)

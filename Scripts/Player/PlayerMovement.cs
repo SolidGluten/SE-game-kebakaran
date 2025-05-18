@@ -39,8 +39,6 @@ public partial class PlayerMovement : CharacterBody2D
 			cayoteeTimer = cayoteeDuration;
 		}
 
-		GD.Print(cayoteeTimer);
-
 		if (Input.IsActionJustPressed("jump_action") && (IsOnFloor() || cayoteeTimer > 0))
 		{
 			velocity.Y = JumpVelocity;
