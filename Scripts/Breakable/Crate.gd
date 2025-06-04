@@ -1,5 +1,5 @@
 class_name Crate
-extends "res://Scripts/Breakable/Breakable.gd"
+extends Breakable
 
 func on_destroy() -> void:
     pass
