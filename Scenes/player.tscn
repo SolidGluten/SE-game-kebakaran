@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://by2ylyv8j87yh" path="res://Sprites/player-cloth.png" id="4_pc8cc"]
 [ext_resource type="Texture2D" uid="uid://vxo6cpebfusp" path="res://Sprites/player-extinguisher2.png" id="5_uvhby"]
 [ext_resource type="Script" uid="uid://vrdpxuhbx7ye" path="res://Scripts/Player/SmokeDetector.cs" id="7_ikvc1"]
-[ext_resource type="Script" uid="uid://r6b7y87g3qbj" path="res://Scripts/Player/PlayerInteraction.cs" id="7_lbcv0"]
+[ext_resource type="Script" uid="uid://bo1588ruq5rkg" path="res://Scripts/Player/PlayerInteraction.gd" id="8_8erm5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0c5s"]
 atlas = ExtResource("2_ixlhm")
@@ -280,7 +280,7 @@ zoom = Vector2(2.7, 2.7)
 position_smoothing_speed = 10.0
 
 [node name="Head" type="Node2D" parent="."]
-script = ExtResource("7_lbcv0")
+script = ExtResource("8_8erm5")
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="Head"]
 shape = SubResource("RectangleShape2D_8y11f")

@@ -20,16 +20,16 @@ func _process(_delta):
             handle_collision(collider)
 
 func handle_collision(collider):
-    match PlayerInventory.get_current_item():
-        PlayerInventory.ItemTypes.FIRE_AXE:
+    match playerInventory.get_current_item():
+        playerInventory.ItemTypes.FIRE_AXE:
             if "Breakable" in collider.get_class():
                 collider.break()
             print("Using Fire Axe")
-        PlayerInventory.ItemTypes.FIRE_EXTINGUISHER:
+        playerInventory.ItemTypes.FIRE_EXTINGUISHER:
             if "Extinguishable" in collider.get_class():
                 collider.extinguish()
             print("Using Fire Extinguisher")
-        PlayerInventory.ItemTypes.WET_CLOTH:
+        playerInventory.ItemTypes.WET_CLOTH:
             print("Using Wet Cloth")
         _:
             pass

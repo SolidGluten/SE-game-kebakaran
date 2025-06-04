@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=4 uid="uid://daqdrr6ft7bls"]
 
 [ext_resource type="PackedScene" uid="uid://bbw2fxx2qbybo" path="res://Scenes/player.tscn" id="2_ni8e5"]
-[ext_resource type="PackedScene" uid="uid://b50w0pxul13wb" path="res://Scenes/fire_extinguisher.tscn" id="2_rkysu"]
+[ext_resource type="PackedScene" uid="uid://b50w0pxul13wb" path="res://Scenes/Pickupable/fire_extinguisher.tscn" id="2_rkysu"]
 [ext_resource type="Texture2D" uid="uid://b6ehhlro6y2bj" path="res://Sprites/icon.svg" id="3_y7wes"]
 [ext_resource type="PackedScene" uid="uid://dcxgxf8qeioqg" path="res://Scenes/UI.tscn" id="4_6mjql"]
 [ext_resource type="Texture2D" uid="uid://dciboji3vtvym" path="res://Sprites/LivingRoom.png" id="5_5g2ml"]
-[ext_resource type="PackedScene" uid="uid://c6pyfrd7kasyd" path="res://Scenes/fire_axe.tscn" id="5_mwwg1"]
-[ext_resource type="PackedScene" uid="uid://dsubl3kxue8qq" path="res://Scenes/wet_cloth.tscn" id="6_eugpp"]
+[ext_resource type="PackedScene" uid="uid://c6pyfrd7kasyd" path="res://Scenes/Pickupable/fire_axe.tscn" id="5_mwwg1"]
+[ext_resource type="PackedScene" uid="uid://dsubl3kxue8qq" path="res://Scenes/Pickupable/wet_cloth.tscn" id="6_eugpp"]
 [ext_resource type="PackedScene" uid="uid://b2eywcjh6wpxb" path="res://Scenes/crate.tscn" id="7_jguv1"]
 [ext_resource type="PackedScene" uid="uid://kees8eif5ney" path="res://Scenes/fire.tscn" id="8_sr4sf"]
 
@@ -176,12 +176,15 @@ position = Vector2(0, 48)
 
 [node name="FireAxe" parent="." instance=ExtResource("5_mwwg1")]
 position = Vector2(54, 49)
+script = null
 
 [node name="FireExtinguisher" parent="." instance=ExtResource("2_rkysu")]
 position = Vector2(24, 48)
+script = null
 
 [node name="WetCloth" parent="." instance=ExtResource("6_eugpp")]
 position = Vector2(83, 49)
+script = null
 
 [node name="Crate" parent="." instance=ExtResource("7_jguv1")]
 position = Vector2(-48, 52)
