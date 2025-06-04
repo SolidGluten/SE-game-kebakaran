@@ -23,7 +23,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		cayotee_timer -= delta
 		_velocity += get_gravity() * delta
-		play_jump_anim()
+		# play_jump_anim()
 	else:
 		cayotee_timer = cayotee_duration
 
@@ -44,7 +44,7 @@ func _physics_process(delta):
 			_velocity.x = move_toward(self.velocity.x, 0, speed)
 			play_idle_anim()
 
-	self.velocity = velocity
+	self.velocity = _velocity
 	move_and_slide()
 
 func apply_knockback(source_pos: Vector2, strength: float) -> void:
@@ -59,11 +59,11 @@ func play_walk_anim():
 
 	var item = PlayerInventory.get_current_item()
 	match item:
-		PlayerInventory.ItemTypes.FireAxe:
+		PlayerInventory.ItemTypes.FIRE_AXE:
 			animated_sprite.play("walk_axe")
-		PlayerInventory.ItemTypes.WetCloth:
+		PlayerInventory.ItemTypes.WET_CLOTH:
 			animated_sprite.play("walk_cloth")
-		PlayerInventory.ItemTypes.FireExtinguisher:
+		PlayerInventory.ItemTypes.FIRE_EXTINGUISHER:
 			animated_sprite.play("walk_exting")
 		_:
 			animated_sprite.play("walk")
@@ -74,11 +74,11 @@ func play_idle_anim():
 
 	var item = PlayerInventory.get_current_item()
 	match item:
-		PlayerInventory.ItemTypes.FireAxe:
+		PlayerInventory.ItemTypes.FIRE_AXE:
 			animated_sprite.play("idle_axe")
-		PlayerInventory.ItemTypes.WetCloth:
+		PlayerInventory.ItemTypes.WET_CLOTH:
 			animated_sprite.play("idle_cloth")
-		PlayerInventory.ItemTypes.FireExtinguisher:
+		PlayerInventory.ItemTypes.FIRE_EXTINGUISHER:
 			animated_sprite.play("idle_exting")
 		_:
 			animated_sprite.play("idle")
@@ -86,11 +86,11 @@ func play_idle_anim():
 func play_jump_anim():
 	var item = PlayerInventory.get_current_item()
 	match item:
-		PlayerInventory.ItemTypes.FireAxe:
+		PlayerInventory.ItemTypes.FIRE_AXE:
 			animated_sprite.play("jump_axe")
-		PlayerInventory.ItemTypes.WetCloth:
+		PlayerInventory.ItemTypes.WET_CLOTH:
 			animated_sprite.play("jump_cloth")
-		PlayerInventory.ItemTypes.FireExtinguisher:
+		PlayerInventory.ItemTypes.FIRE_EXTINGUISHER:
 			animated_sprite.play("jump_exting")
 		_:
 			animated_sprite.play("jump")

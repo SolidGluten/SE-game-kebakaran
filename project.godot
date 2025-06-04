@@ -17,7 +17,7 @@ config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
-PlayerInventory="*res://Scripts/Player/PlayerInventory.cs"
+PlayerInventory="*res://Scripts/Player/PlayerInventory.gd"
 PlayerHealth="*res://Scripts/Player/PlayerHealth.cs"
 LevelManager="*res://Scripts/Manager/LevelManager.cs"
 
