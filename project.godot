@@ -18,8 +18,8 @@ config/icon="res://Sprites/icon.svg"
 [autoload]
 
 playerInventory="*res://Scripts/Player/PlayerInventory.gd"
-LevelManager="*res://Scripts/Manager/LevelManager.cs"
 playerHealth="*res://Scripts/Player/PlayerHealth.gd"
+levelManager="*res://Scripts/Manager/LevelManager.gd"
 
 [dotnet]
 

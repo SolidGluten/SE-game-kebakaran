@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dljpnl6qupmox" path="res://Sprites/player-axe2.png" id="4_faeuq"]
 [ext_resource type="Texture2D" uid="uid://by2ylyv8j87yh" path="res://Sprites/player-cloth.png" id="4_pc8cc"]
 [ext_resource type="Texture2D" uid="uid://vxo6cpebfusp" path="res://Sprites/player-extinguisher2.png" id="5_uvhby"]
-[ext_resource type="Script" uid="uid://vrdpxuhbx7ye" path="res://Scripts/Player/SmokeDetector.cs" id="7_ikvc1"]
+[ext_resource type="Script" uid="uid://be5w3p5jabs0r" path="res://Scripts/Player/SmokeDetector.gd" id="7_8erm5"]
 [ext_resource type="Script" uid="uid://bo1588ruq5rkg" path="res://Scripts/Player/PlayerInteraction.gd" id="8_8erm5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0c5s"]
@@ -269,7 +269,7 @@ shape = SubResource("CapsuleShape2D_u3btv")
 position = Vector2(0, 3)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("7_ikvc1")
+script = ExtResource("7_8erm5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SmokeDetector"]
 shape = SubResource("CapsuleShape2D_e4ofe")
