@@ -1,13 +1,13 @@
 [gd_scene load_steps=37 format=3 uid="uid://bbw2fxx2qbybo"]
 
-[ext_resource type="Script" path="res://Scripts/Player/PlayerMovement.cs" id="1_1fb5y"]
+[ext_resource type="Script" uid="uid://dyb17wdpyoxib" path="res://Scripts/Player/PlayerMovement.gd" id="1_8erm5"]
 [ext_resource type="Texture2D" uid="uid://c17vqlkhy4kj3" path="res://Sprites/player-walk.png" id="2_ixlhm"]
 [ext_resource type="Texture2D" uid="uid://bkqnaatoqs1qe" path="res://Sprites/player-jump2.png" id="3_byksy"]
 [ext_resource type="Texture2D" uid="uid://dljpnl6qupmox" path="res://Sprites/player-axe2.png" id="4_faeuq"]
 [ext_resource type="Texture2D" uid="uid://by2ylyv8j87yh" path="res://Sprites/player-cloth.png" id="4_pc8cc"]
 [ext_resource type="Texture2D" uid="uid://vxo6cpebfusp" path="res://Sprites/player-extinguisher2.png" id="5_uvhby"]
-[ext_resource type="Script" path="res://Scripts/Player/SmokeDetector.cs" id="7_ikvc1"]
-[ext_resource type="Script" path="res://Scripts/Player/PlayerInteraction.cs" id="7_lbcv0"]
+[ext_resource type="Script" uid="uid://vrdpxuhbx7ye" path="res://Scripts/Player/SmokeDetector.cs" id="7_ikvc1"]
+[ext_resource type="Script" uid="uid://r6b7y87g3qbj" path="res://Scripts/Player/PlayerInteraction.cs" id="7_lbcv0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0c5s"]
 atlas = ExtResource("2_ixlhm")
@@ -253,9 +253,7 @@ size = Vector2(0.5, 2)
 
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
-script = ExtResource("1_1fb5y")
-Speed = 150.0
-JumpVelocity = -300.0
+script = ExtResource("1_8erm5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 4

@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://kees8eif5ney"]
 
 [ext_resource type="Texture2D" uid="uid://dhil400hom1tk" path="res://Sprites/fire.png" id="2_6vblx"]
-[ext_resource type="Script" path="res://Scripts/Extinguishable/Fire.cs" id="2_wdhss"]
-[ext_resource type="Script" path="res://Scripts/Hurtable/Hurtable.cs" id="3_1xrkx"]
+[ext_resource type="Script" uid="uid://dcpcy8mchlaae" path="res://Scripts/Extinguishable/Fire.cs" id="2_wdhss"]
+[ext_resource type="Script" uid="uid://bxl4ehn6aimgg" path="res://Scripts/Hurtable/Hurtable.cs" id="3_1xrkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4w2h"]
 size = Vector2(16.5, 20)

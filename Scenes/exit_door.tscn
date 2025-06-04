@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://fjw8a7o00riv"]
 
 [ext_resource type="Texture2D" uid="uid://dnief2au5570t" path="res://Sprites/exit-door.png" id="1_vx466"]
-[ext_resource type="Script" path="res://Scripts/Manager/ExitDoor.cs" id="1_yqpbi"]
+[ext_resource type="Script" uid="uid://bt3lho876blks" path="res://Scripts/Manager/ExitDoor.cs" id="1_yqpbi"]
 [ext_resource type="Texture2D" uid="uid://cpd7otxv0ndtk" path="res://Sprites/exit-sign.png" id="3_w41bl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4lua4"]

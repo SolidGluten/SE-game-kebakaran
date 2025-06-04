@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsubl3kxue8qq"]
 
-[ext_resource type="Script" path="res://Scripts/Pickable/WetCloth.cs" id="1_1vqwx"]
+[ext_resource type="Script" uid="uid://c800k80skukgs" path="res://Scripts/Pickable/WetCloth.cs" id="1_1vqwx"]
 [ext_resource type="Texture2D" uid="uid://cuqq04lr52exr" path="res://Sprites/tools/wet_cloth.png" id="2_dbrrc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y0akn"]

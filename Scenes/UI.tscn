@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcxgxf8qeioqg"]
 
-[ext_resource type="Script" path="res://Scripts/UI/UIManager.cs" id="1_70hco"]
+[ext_resource type="Script" uid="uid://cxcrdry4svc61" path="res://Scripts/UI/UIManager.cs" id="1_70hco"]
 [ext_resource type="Texture2D" uid="uid://crxc2yfd2f45d" path="res://Sprites/tools/fire_axe.png" id="2_gamh4"]
 [ext_resource type="Texture2D" uid="uid://blq1lp1b8qpqe" path="res://Sprites/tools/fire_extinguisher.png" id="3_w7hmr"]
 [ext_resource type="Texture2D" uid="uid://cuqq04lr52exr" path="res://Sprites/tools/wet_cloth.png" id="4_r46t8"]
