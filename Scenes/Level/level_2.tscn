@@ -200,7 +200,6 @@ sources/0 = SubResource("TileSetAtlasSource_iqur0")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Main UI" parent="CanvasLayer" instance=ExtResource("1_qrslp")]
-visible = false
 
 [node name="TilemapCollection" type="Node" parent="."]
 
@@ -243,17 +242,16 @@ position = Vector2(84, -18)
 position = Vector2(153, -110)
 
 [node name="Crate" parent="." instance=ExtResource("5_0chww")]
-position = Vector2(262, -138)
+position = Vector2(262, -140)
 
 [node name="Fire4" parent="." instance=ExtResource("6_hom23")]
 position = Vector2(299, -137)
 
 [node name="Crate2" parent="." instance=ExtResource("5_0chww")]
-position = Vector2(262, -158)
+position = Vector2(262, -163)
 
 [node name="Fire5" parent="." instance=ExtResource("6_hom23")]
 position = Vector2(323, -137)
 
 [node name="Exit Door" parent="." instance=ExtResource("7_5ncvb")]
 position = Vector2(359, -148)
-nextLevelPath = "res://Scenes/Level/level_3.tscn"
