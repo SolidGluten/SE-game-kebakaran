@@ -3,7 +3,7 @@ extends Node
 
 @export var max_health: int = 3
 @export var current_health: int = 0
-@export var is_on_fire: bool = true
+@export var is_on_fire: bool = false
 @export var is_rolling: bool = false
 
 @export var fire_damage: int = 1
@@ -22,8 +22,6 @@ func _ready() -> void:
     fire_damage_timer = fire_damage_interval
 
 func _physics_process(delta: float) -> void:
-    print(roll_timer)
-
     if is_on_fire:
         fire_damage_timer -= delta
     else:
@@ -48,6 +46,9 @@ func _physics_process(delta: float) -> void:
         
         is_rolling = true
         roll_timer = roll_duration
+
+    if Input.is_action_just_pressed("dev_set_fire"):
+        is_on_fire = true
         
 func hurt(dmg: int) -> void:
     current_health = max(0, current_health - dmg)
