@@ -124,11 +124,6 @@ modulate = Color(1, 1, 1, 0.537255)
 top_level = true
 tile_set = SubResource("TileSet_mcnlf")
 
-[node name="Exit Door" parent="TilemapCollection" node_paths=PackedStringArray("uiManager") instance=ExtResource("4_1pufk")]
-position = Vector2(274, 44)
-level_path = "res://Scenes/Level/level02.tscn"
-uiManager = NodePath("../../CanvasLayer/Main UI")
-
 [node name="Player" parent="." instance=ExtResource("4_i7smx")]
 position = Vector2(-175, 48)
 speed = 150.0
@@ -151,3 +146,8 @@ position = Vector2(121, 55)
 
 [node name="FireExtinguisher" parent="." instance=ExtResource("8_q3wsk")]
 position = Vector2(68, 43)
+
+[node name="Exit Door" parent="." node_paths=PackedStringArray("uiManager") instance=ExtResource("4_1pufk")]
+position = Vector2(274, 44)
+level_path = "res://Scenes/Level/level02.tscn"
+uiManager = NodePath("../CanvasLayer/Main UI")

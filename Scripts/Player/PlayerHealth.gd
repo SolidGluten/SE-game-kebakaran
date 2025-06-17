@@ -24,6 +24,7 @@ func on_ready() -> void:
     current_health = max_health
     fire_damage_timer = fire_damage_interval
     is_on_fire = false
+    is_rolling = false
 
 func _physics_process(delta: float) -> void:
     if is_on_fire:
