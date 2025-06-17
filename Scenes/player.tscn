@@ -347,8 +347,10 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 physics_interpolation_mode = 1
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_8erm5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -358,7 +360,7 @@ sprite_frames = SubResource("SpriteFrames_o0d3e")
 animation = &"idle"
 script = ExtResource("8_tx1dd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_u3btv")
 
@@ -382,10 +384,11 @@ script = ExtResource("8_8erm5")
 [node name="ShapeCast2D" type="ShapeCast2D" parent="Head"]
 shape = SubResource("RectangleShape2D_8y11f")
 target_position = Vector2(25, 0)
-collision_mask = 3
+collide_with_areas = true
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 visible = false
+z_index = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_olqyp")
 autoplay = "default"

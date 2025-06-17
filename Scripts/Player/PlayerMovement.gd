@@ -18,7 +18,10 @@ func _ready():
 	player_anim = $AnimatedSprite2D
 
 func _physics_process(delta):
-	if gameManager.current_state == GameManager.GameState.DEAD:
+	if gameManager.current_state != GameManager.GameState.PLAYING:
+		return
+	
+	if playerHealth.is_rolling:
 		return
 
 	var _velocity = self.velocity

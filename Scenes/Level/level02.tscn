@@ -1,17 +1,17 @@
-[gd_scene load_steps=16 format=4 uid="uid://toth7j6f3vyw"]
+[gd_scene load_steps=16 format=4 uid="uid://dygqtsi1uxu0h"]
 
-[ext_resource type="PackedScene" uid="uid://dcxgxf8qeioqg" path="res://Scenes/UI/UI.tscn" id="1_q4tm8"]
-[ext_resource type="Texture2D" uid="uid://biyblvuihgfp6" path="res://Sprites/environment.png" id="3_cgudf"]
-[ext_resource type="Texture2D" uid="uid://c1oiobygpyap0" path="res://Sprites/smoke.png" id="3_scv1y"]
-[ext_resource type="PackedScene" uid="uid://fjw8a7o00riv" path="res://Scenes/exit_door.tscn" id="4_1pufk"]
-[ext_resource type="PackedScene" uid="uid://bbw2fxx2qbybo" path="res://Scenes/player.tscn" id="4_i7smx"]
-[ext_resource type="PackedScene" uid="uid://kees8eif5ney" path="res://Scenes/Obstacles/fire.tscn" id="5_8l6ri"]
-[ext_resource type="PackedScene" uid="uid://b2eywcjh6wpxb" path="res://Scenes/Obstacles/crate.tscn" id="5_150k0"]
-[ext_resource type="PackedScene" uid="uid://c6pyfrd7kasyd" path="res://Scenes/Pickupable/fire_axe.tscn" id="6_m5uxk"]
-[ext_resource type="PackedScene" uid="uid://b50w0pxul13wb" path="res://Scenes/Pickupable/fire_extinguisher.tscn" id="8_q3wsk"]
+[ext_resource type="PackedScene" uid="uid://dcxgxf8qeioqg" path="res://Scenes/UI/UI.tscn" id="1_3hft5"]
+[ext_resource type="Texture2D" uid="uid://biyblvuihgfp6" path="res://Sprites/environment.png" id="2_rqdhx"]
+[ext_resource type="Texture2D" uid="uid://c1oiobygpyap0" path="res://Sprites/smoke.png" id="3_qifa3"]
+[ext_resource type="PackedScene" uid="uid://fjw8a7o00riv" path="res://Scenes/exit_door.tscn" id="4_xa1np"]
+[ext_resource type="PackedScene" uid="uid://bbw2fxx2qbybo" path="res://Scenes/player.tscn" id="5_quo5c"]
+[ext_resource type="PackedScene" uid="uid://b2eywcjh6wpxb" path="res://Scenes/Obstacles/crate.tscn" id="6_h5wv1"]
+[ext_resource type="PackedScene" uid="uid://c6pyfrd7kasyd" path="res://Scenes/Pickupable/fire_axe.tscn" id="7_8s6xm"]
+[ext_resource type="PackedScene" uid="uid://kees8eif5ney" path="res://Scenes/Obstacles/fire.tscn" id="8_3aexo"]
+[ext_resource type="PackedScene" uid="uid://b50w0pxul13wb" path="res://Scenes/Pickupable/fire_extinguisher.tscn" id="9_rlks5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_150k0"]
-texture = ExtResource("3_cgudf")
+texture = ExtResource("2_rqdhx")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -58,7 +58,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_150k0")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pufk"]
-texture = ExtResource("3_cgudf")
+texture = ExtResource("2_rqdhx")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -87,7 +87,7 @@ texture = ExtResource("3_cgudf")
 sources/0 = SubResource("TileSetAtlasSource_1pufk")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hptm8"]
-texture = ExtResource("3_scv1y")
+texture = ExtResource("3_qifa3")
 0:0/0 = 0
 0:0/0/z_index = 4
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -104,7 +104,7 @@ sources/1 = SubResource("TileSetAtlasSource_hptm8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Main UI" parent="CanvasLayer" instance=ExtResource("1_q4tm8")]
+[node name="Main UI" parent="CanvasLayer" instance=ExtResource("1_3hft5")]
 
 [node name="TilemapCollection" type="Node" parent="."]
 
@@ -124,30 +124,28 @@ modulate = Color(1, 1, 1, 0.537255)
 top_level = true
 tile_set = SubResource("TileSet_mcnlf")
 
-[node name="Exit Door" parent="TilemapCollection" node_paths=PackedStringArray("uiManager") instance=ExtResource("4_1pufk")]
-position = Vector2(274, 44)
-level_path = "res://Scenes/Level/level02.tscn"
-uiManager = NodePath("../../CanvasLayer/Main UI")
+[node name="Exit Door" parent="TilemapCollection" instance=ExtResource("4_xa1np")]
+position = Vector2(-131, 44)
 
-[node name="Player" parent="." instance=ExtResource("4_i7smx")]
+[node name="Player" parent="." instance=ExtResource("5_quo5c")]
 position = Vector2(-175, 48)
 speed = 150.0
 jump_velocity = -250.0
 
-[node name="Crate" parent="." instance=ExtResource("5_150k0")]
+[node name="Crate" parent="." instance=ExtResource("6_h5wv1")]
 position = Vector2(-8, 52)
 
-[node name="Crate2" parent="." instance=ExtResource("5_150k0")]
+[node name="Crate2" parent="." instance=ExtResource("6_h5wv1")]
 position = Vector2(-8, 28)
 
-[node name="FireAxe" parent="." instance=ExtResource("6_m5uxk")]
+[node name="FireAxe" parent="." instance=ExtResource("7_8s6xm")]
 position = Vector2(-99, 43)
 
-[node name="Fire" parent="." instance=ExtResource("5_8l6ri")]
+[node name="Fire" parent="." instance=ExtResource("8_3aexo")]
 position = Vector2(161, 55)
 
-[node name="Fire2" parent="." instance=ExtResource("5_8l6ri")]
+[node name="Fire2" parent="." instance=ExtResource("8_3aexo")]
 position = Vector2(121, 55)
 
-[node name="FireExtinguisher" parent="." instance=ExtResource("8_q3wsk")]
+[node name="FireExtinguisher" parent="." instance=ExtResource("9_rlks5")]
 position = Vector2(68, 43)

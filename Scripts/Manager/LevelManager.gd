@@ -10,7 +10,7 @@ func _process(_delta):
 func reset_current_scene():
     get_tree().reload_current_scene()
 
-func next_level(level_path):
+func load_level(level_path):
     var scene = load(level_path)
     if scene and scene is PackedScene:
         get_tree().change_scene_to_packed(scene)

@@ -47,10 +47,13 @@ animations = [{
 }]
 
 [node name="Fire" type="StaticBody2D"]
+collision_priority = 2.0
 script = ExtResource("1_idb68")
 
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2(0, -7)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("2_idb68")
 put_on_fire = true
 

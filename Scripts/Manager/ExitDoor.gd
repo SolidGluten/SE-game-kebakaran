@@ -1,11 +1,11 @@
 class_name ExitDoor
-extends Area2D
+extends Interactable
 
 @export var level_path: String
+@export var uiManager: UImanager
 
-func _ready() -> void:
-    body_entered.connect(self.next_level)
-
-func next_level(body: Node2D) -> void:
-    if body.is_in_group("player"):
-        levelManager.next_level(level_path)
+func interact() -> void:
+    if level_path:
+        uiManager.enable_win_screen(level_path)
+    else:
+        printerr("Level path is not set.")
