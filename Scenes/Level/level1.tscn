@@ -149,5 +149,5 @@ position = Vector2(68, 43)
 
 [node name="Exit Door" parent="." node_paths=PackedStringArray("uiManager") instance=ExtResource("4_1pufk")]
 position = Vector2(274, 44)
-level_path = "res://Scenes/Level/level02.tscn"
+level_path = "res://Scenes/Level/level2.tscn"
 uiManager = NodePath("../CanvasLayer/Main UI")

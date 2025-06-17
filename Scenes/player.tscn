@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://be5w3p5jabs0r" path="res://Scripts/Player/SmokeDetector.gd" id="7_8erm5"]
 [ext_resource type="Script" uid="uid://bo1588ruq5rkg" path="res://Scripts/Player/PlayerInteraction.gd" id="8_8erm5"]
 [ext_resource type="Script" uid="uid://cjskkqf63m1n8" path="res://Scripts/Player/PlayerAnimation.gd" id="8_tx1dd"]
-[ext_resource type="Texture2D" uid="uid://dhil400hom1tk" path="res://Sprites/fire.png" id="11_gymyn"]
+[ext_resource type="Texture2D" uid="uid://cj50v6nqbcgp1" path="res://Sprites/fire.png" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
 atlas = ExtResource("2_f1ek2")

@@ -9,7 +9,8 @@ func _ready():
 	player_movement = get_parent()
 
 func _process(_delta):
-	var new_target_pos = Vector2(ray_cast_length * (1.0 if player_movement.is_facing_right else 0.0), 0)
+	var new_target_pos = Vector2(ray_cast_length * (1.0 if player_movement.is_facing_right else -1.0), 0)
+	print("Target Position: ", new_target_pos)
 	shape_cast.target_position = new_target_pos
 
 	if Input.is_action_just_pressed("interact") and shape_cast.is_colliding():
@@ -19,8 +20,6 @@ func _process(_delta):
 			handle_collision(collider)
 
 func handle_collision(collider):
-	print("Collided with: ", collider.name)
-
 	if collider is Interactable:
 		collider.interact()
 

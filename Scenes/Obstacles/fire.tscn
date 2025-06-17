@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://kees8eif5ney"]
 
 [ext_resource type="Script" uid="uid://cv3ue8wyl13pu" path="res://Scripts/Extinguishable/Fire.gd" id="1_idb68"]
-[ext_resource type="Texture2D" uid="uid://dhil400hom1tk" path="res://Sprites/fire.png" id="2_6vblx"]
 [ext_resource type="Script" uid="uid://bnu1ox7wdpt58" path="res://Scripts/Hurtable/Hurtable.gd" id="2_idb68"]
+[ext_resource type="Texture2D" uid="uid://cj50v6nqbcgp1" path="res://Sprites/fire.png" id="4_j23y0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4w2h"]
 size = Vector2(16.5, 20)
@@ -10,36 +10,36 @@ size = Vector2(16.5, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocm4x"]
 size = Vector2(15.5556, 21.1111)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iofh6"]
-atlas = ExtResource("2_6vblx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxsxn"]
+atlas = ExtResource("4_j23y0")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uvceu"]
-atlas = ExtResource("2_6vblx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6j8o"]
+atlas = ExtResource("4_j23y0")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xnyg"]
-atlas = ExtResource("2_6vblx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu5sy"]
+atlas = ExtResource("4_j23y0")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pj6ap"]
-atlas = ExtResource("2_6vblx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjkh1"]
+atlas = ExtResource("4_j23y0")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ft3gv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iofh6")
+"texture": SubResource("AtlasTexture_oxsxn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uvceu")
+"texture": SubResource("AtlasTexture_m6j8o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4xnyg")
+"texture": SubResource("AtlasTexture_vu5sy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pj6ap")
+"texture": SubResource("AtlasTexture_wjkh1")
 }],
 "loop": true,
 "name": &"fire",
