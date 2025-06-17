@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bbw2fxx2qbybo"]
+[gd_scene load_steps=52 format=3 uid="uid://bbw2fxx2qbybo"]
 
 [ext_resource type="Script" uid="uid://dyb17wdpyoxib" path="res://Scripts/Player/PlayerMovement.gd" id="1_8erm5"]
 [ext_resource type="Texture2D" uid="uid://dt7yqbmqmqqg5" path="res://Sprites/duck_roll.png" id="2_f1ek2"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://be5w3p5jabs0r" path="res://Scripts/Player/SmokeDetector.gd" id="7_8erm5"]
 [ext_resource type="Script" uid="uid://bo1588ruq5rkg" path="res://Scripts/Player/PlayerInteraction.gd" id="8_8erm5"]
 [ext_resource type="Script" uid="uid://cjskkqf63m1n8" path="res://Scripts/Player/PlayerAnimation.gd" id="8_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://dhil400hom1tk" path="res://Sprites/fire.png" id="11_gymyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
 atlas = ExtResource("2_f1ek2")
@@ -310,6 +311,42 @@ height = 20.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y11f"]
 size = Vector2(0.5, 2)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
+atlas = ExtResource("11_gymyn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igrcy"]
+atlas = ExtResource("11_gymyn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
+atlas = ExtResource("11_gymyn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6n3p"]
+atlas = ExtResource("11_gymyn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olqyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqcod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igrcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6n3p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 physics_interpolation_mode = 1
 script = ExtResource("1_8erm5")
@@ -318,8 +355,7 @@ script = ExtResource("1_8erm5")
 z_index = 4
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_o0d3e")
-animation = &"duck_roll"
-frame_progress = 0.914762
+animation = &"idle"
 script = ExtResource("8_tx1dd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -347,3 +383,10 @@ script = ExtResource("8_8erm5")
 shape = SubResource("RectangleShape2D_8y11f")
 target_position = Vector2(25, 0)
 collision_mask = 3
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_olqyp")
+autoplay = "default"
+frame_progress = 0.999667

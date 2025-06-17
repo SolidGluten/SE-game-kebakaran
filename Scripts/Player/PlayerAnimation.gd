@@ -9,8 +9,15 @@ enum playerState {
 }
 
 @export var current_state: playerState = playerState.IDLE
+@onready var on_fire_anim: AnimatedSprite2D = $"../Fire"
 
 func _physics_process(_delta: float) -> void:
+
+	if playerHealth.is_on_fire and not playerHealth.is_rolling:
+		on_fire_anim.visible = true
+	else:
+		on_fire_anim.visible = false
+
 	if playerHealth.is_rolling:
 		set_state(playerState.ROLL)
 		duck_roll_anim()
