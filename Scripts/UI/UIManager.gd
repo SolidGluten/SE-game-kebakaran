@@ -1,4 +1,8 @@
+class_name UImanager
 extends Control
+
+@onready var death_screen: DeathScreen = $DeathScreen
+@onready var win_screen: WinScreen = $WinScreen
 
 @onready var fire_axe_img: CanvasItem = $ToolContainer/FireAxeImage
 @onready var wet_cloth_img: CanvasItem = $ToolContainer/WetClothImage
@@ -18,6 +22,9 @@ func _ready():
 	fire_axe_img.visible = false
 	wet_cloth_img.visible = false
 	fire_extinguisher_img.visible = false
+
+	death_screen.visible = false
+	win_screen.visible = false
 
 	for child in $HealthContainer.get_children():
 		if child is TextureRect:
@@ -62,3 +69,12 @@ func _exit_tree():
 		playerInventory.disconnect("item_added", Callable(self, "enable_item_ui"))
 	if playerHealth:
 		playerHealth.disconnect("health_changed", Callable(self, "sync_health_ui"))
+
+func enable_death_screen() -> void:
+	death_screen.visible = true
+	gameManager.set_game_state(GameManager.GameState.DEAD)
+
+func enable_win_screen(next_level_path: String) -> void:
+	win_screen.visible = true
+	win_screen.level_path = next_level_path
+	gameManager.set_game_state(GameManager.GameState.WIN)

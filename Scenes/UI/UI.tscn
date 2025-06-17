@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcxgxf8qeioqg"]
+[gd_scene load_steps=15 format=3 uid="uid://dcxgxf8qeioqg"]
 
 [ext_resource type="Script" uid="uid://cgkcac86c4hyl" path="res://Scripts/UI/UIManager.gd" id="1_48q88"]
 [ext_resource type="Texture2D" uid="uid://crxc2yfd2f45d" path="res://Sprites/tools/fire_axe.png" id="2_gamh4"]
+[ext_resource type="PackedScene" uid="uid://fyjad1d56ayn" path="res://Scenes/UI/death_screen.tscn" id="3_b83rk"]
 [ext_resource type="Texture2D" uid="uid://blq1lp1b8qpqe" path="res://Sprites/tools/fire_extinguisher.png" id="3_w7hmr"]
+[ext_resource type="PackedScene" uid="uid://cdmgcdjr3f6ke" path="res://Scenes/UI/win_screen.tscn" id="4_7tgkj"]
 [ext_resource type="Texture2D" uid="uid://cuqq04lr52exr" path="res://Sprites/tools/wet_cloth.png" id="4_r46t8"]
 [ext_resource type="Texture2D" uid="uid://d1f7f317j83ke" path="res://Sprites/heart/heart_full.png" id="5_hull5"]
 [ext_resource type="PackedScene" uid="uid://ddhqvxohaf2mq" path="res://Scenes/guide_UI.tscn" id="6_88n7v"]
@@ -90,6 +92,12 @@ expand_mode = 3
 layout_mode = 2
 texture = ExtResource("5_hull5")
 expand_mode = 3
+
+[node name="DeathScreen" parent="." instance=ExtResource("3_b83rk")]
+layout_mode = 1
+
+[node name="WinScreen" parent="." instance=ExtResource("4_7tgkj")]
+layout_mode = 1
 
 [node name="GuideContainer" parent="." instance=ExtResource("6_88n7v")]
 visible = false
