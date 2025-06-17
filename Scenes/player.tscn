@@ -389,4 +389,4 @@ visible = false
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_olqyp")
 autoplay = "default"
-frame_progress = 0.999667
+frame_progress = 0.715922

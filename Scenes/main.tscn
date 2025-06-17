@@ -1,13 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://daqdrr6ft7bls"]
+[gd_scene load_steps=11 format=4 uid="uid://daqdrr6ft7bls"]
 
 [ext_resource type="PackedScene" uid="uid://bbw2fxx2qbybo" path="res://Scenes/player.tscn" id="2_ni8e5"]
-[ext_resource type="PackedScene" uid="uid://b50w0pxul13wb" path="res://Scenes/Pickupable/fire_extinguisher.tscn" id="2_rkysu"]
-[ext_resource type="Texture2D" uid="uid://b6ehhlro6y2bj" path="res://Sprites/icon.svg" id="3_y7wes"]
+[ext_resource type="Texture2D" uid="uid://c1oiobygpyap0" path="res://Sprites/smoke.png" id="3_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://dcxgxf8qeioqg" path="res://Scenes/UI.tscn" id="4_6mjql"]
 [ext_resource type="Texture2D" uid="uid://dciboji3vtvym" path="res://Sprites/LivingRoom.png" id="5_5g2ml"]
-[ext_resource type="PackedScene" uid="uid://c6pyfrd7kasyd" path="res://Scenes/Pickupable/fire_axe.tscn" id="5_mwwg1"]
-[ext_resource type="PackedScene" uid="uid://dsubl3kxue8qq" path="res://Scenes/Pickupable/wet_cloth.tscn" id="6_eugpp"]
-[ext_resource type="PackedScene" uid="uid://b2eywcjh6wpxb" path="res://Scenes/crate.tscn" id="7_jguv1"]
 [ext_resource type="PackedScene" uid="uid://kees8eif5ney" path="res://Scenes/fire.tscn" id="8_sr4sf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbbtj"]
@@ -72,85 +68,24 @@ sources/0 = SubResource("TileSetAtlasSource_dbbtj")
 
 [sub_resource type="TileSet" id="TileSet_2157r"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oanll"]
-texture = ExtResource("3_y7wes")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hptm8"]
+texture = ExtResource("3_ynf5e")
 0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:3/0/custom_data_0 = true
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
+0:0/0/z_index = 4
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:0/0/custom_data_0 = true
 
 [sub_resource type="TileSet" id="TileSet_mcnlf"]
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 2
 custom_data_layer_0/name = "is_smoke"
 custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_oanll")
+sources/1 = SubResource("TileSetAtlasSource_hptm8")
 
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Main UI" parent="CanvasLayer" instance=ExtResource("4_6mjql")]
 
@@ -167,29 +102,15 @@ tile_set = SubResource("TileSet_2157r")
 [node name="MiscLayer" type="TileMapLayer" parent="TilemapCollection"]
 
 [node name="SmokeLayer" type="TileMapLayer" parent="TilemapCollection"]
-modulate = Color(1, 1, 1, 0.392157)
-tile_map_data = PackedByteArray("AAD5/wMAAAACAAMAAAD5/wIAAAACAAMAAAD5/wEAAAACAAMAAAD5/wAAAAACAAMAAAD5////AAACAAMAAAD4////AAACAAMAAAD4//7/AAACAAMAAAD3//7/AAACAAMAAAD2//7/AAACAAMAAAD2////AAACAAMAAAD2/wAAAAACAAMAAAD2/wEAAAACAAMAAAD2/wIAAAACAAMAAAD2/wMAAAACAAMAAAD3/wMAAAACAAMAAAD4/wMAAAACAAMAAAD4/wIAAAACAAMAAAD4/wEAAAACAAMAAAD4/wAAAAACAAMAAAD3/wAAAAACAAMAAAD3////AAACAAMAAAD3/wIAAAACAAMAAAD3/wEAAAACAAMAAAD5//7/AAACAAMAAAD1////AAACAAMAAAD1/wAAAAACAAMAAAD1/wEAAAACAAMAAAD1/wIAAAACAAMAAAD1//7/AAACAAMAAAD1/wMAAAACAAMAAAD0/wMAAAACAAMAAAD0/wIAAAACAAMAAAD0/wEAAAACAAMAAAD0/wAAAAACAAMAAAD0////AAACAAMAAAD0//7/AAACAAMAAAD6/wEAAAACAAMAAAD6/wIAAAACAAMAAAD6/wMAAAACAAMAAAD6/wAAAAACAAMAAAD6////AAACAAMAAAD6//7/AAACAAMAAAA=")
+modulate = Color(1, 1, 1, 0.537255)
+top_level = true
+tile_map_data = PackedByteArray("AAD5/wMAAQAAAAAAAAD5/wIAAQAAAAAAAAD5/wEAAQAAAAAAAAD5/wAAAQAAAAAAAAD5////AQAAAAAAAAD4////AQAAAAAAAAD4//7/AQAAAAAAAAD3//7/AQAAAAAAAAD2//7/AQAAAAAAAAD2////AQAAAAAAAAD2/wAAAQAAAAAAAAD2/wEAAQAAAAAAAAD2/wIAAQAAAAAAAAD2/wMAAQAAAAAAAAD3/wMAAQAAAAAAAAD4/wMAAQAAAAAAAAD4/wIAAQAAAAAAAAD4/wEAAQAAAAAAAAD4/wAAAQAAAAAAAAD3/wAAAQAAAAAAAAD3////AQAAAAAAAAD3/wIAAQAAAAAAAAD3/wEAAQAAAAAAAAD5//7/AQAAAAAAAAD1////AQAAAAAAAAD1/wAAAQAAAAAAAAD1/wEAAQAAAAAAAAD1/wIAAQAAAAAAAAD1//7/AQAAAAAAAAD1/wMAAQAAAAAAAAD0/wMAAQAAAAAAAAD0/wIAAQAAAAAAAAD0/wEAAQAAAAAAAAD0/wAAAQAAAAAAAAD0////AQAAAAAAAAD0//7/AQAAAAAAAAD6/wEAAQAAAAAAAAD6/wIAAQAAAAAAAAD6/wMAAQAAAAAAAAD6/wAAAQAAAAAAAAD6////AQAAAAAAAAD6//7/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_mcnlf")
 
 [node name="Player" parent="." instance=ExtResource("2_ni8e5")]
 position = Vector2(0, 48)
 speed = 150.0
 jump_velocity = -250.0
-
-[node name="FireAxe" parent="." instance=ExtResource("5_mwwg1")]
-position = Vector2(54, 49)
-script = null
-
-[node name="FireExtinguisher" parent="." instance=ExtResource("2_rkysu")]
-position = Vector2(24, 48)
-script = null
-
-[node name="WetCloth" parent="." instance=ExtResource("6_eugpp")]
-position = Vector2(83, 49)
-script = null
-
-[node name="Crate" parent="." instance=ExtResource("7_jguv1")]
-position = Vector2(-48, 52)
 
 [node name="Fire" parent="." instance=ExtResource("8_sr4sf")]
 position = Vector2(112, 52)
