@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcxgxf8qeioqg"]
+[gd_scene load_steps=13 format=3 uid="uid://dcxgxf8qeioqg"]
 
 [ext_resource type="Script" uid="uid://cgkcac86c4hyl" path="res://Scripts/UI/UIManager.gd" id="1_48q88"]
 [ext_resource type="Texture2D" uid="uid://crxc2yfd2f45d" path="res://Sprites/tools/fire_axe.png" id="2_gamh4"]
@@ -29,6 +29,11 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="ImageTexture" id="ImageTexture_xjg7p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg6lk"]
+bg_color = Color(0.912684, 0.437149, 0.355842, 1)
 
 [node name="Main UI" type="Control"]
 layout_mode = 3
@@ -105,3 +110,27 @@ grow_horizontal = 0
 position = Vector2(19, 16)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_j04uc")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -153.0
+offset_top = 182.0
+offset_right = 167.0
+offset_bottom = 222.0
+grow_horizontal = 2
+
+[node name="HSlider" type="HSlider" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_xjg7p")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_mg6lk")
+value = 50.0
+editable = false
+scrollable = false

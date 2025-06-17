@@ -12,10 +12,10 @@ var knock_velocity: Vector2 = Vector2.ZERO
 @export var knock_duration: float = 0.1 # seconds
 var knock_timer: float = 0.0
 
-var animated_sprite: AnimatedSprite2D
+var player_anim: PlayerAnimation
 
 func _ready():
-	animated_sprite = $AnimatedSprite2D
+	player_anim = $AnimatedSprite2D
 
 func _physics_process(delta):
 	var _velocity = self.velocity
@@ -38,11 +38,11 @@ func _physics_process(delta):
 		if direction != Vector2.ZERO:
 			_velocity.x = direction.x * speed
 			is_facing_right = direction.x > 0
-			animated_sprite.flip_h = not is_facing_right
-			play_walk_anim()
+			player_anim.flip_h = not is_facing_right
+			player_anim.set_state(PlayerAnimation.playerState.WALK)
 		else:
 			_velocity.x = move_toward(self.velocity.x, 0, speed)
-			play_idle_anim()
+			player_anim.set_state(PlayerAnimation.playerState.IDLE)
 
 	self.velocity = _velocity
 	move_and_slide()
@@ -53,44 +53,4 @@ func apply_knockback(source_pos: Vector2, strength: float) -> void:
 	velocity = knock_velocity
 	knock_timer = knock_duration
 
-func play_walk_anim():
-	if not is_on_floor():
-		return
 
-	var item = playerInventory.get_current_item()
-	match item:
-		playerInventory.ItemTypes.FIRE_AXE:
-			animated_sprite.play("walk_axe")
-		playerInventory.ItemTypes.WET_CLOTH:
-			animated_sprite.play("walk_cloth")
-		playerInventory.ItemTypes.FIRE_EXTINGUISHER:
-			animated_sprite.play("walk_exting")
-		_:
-			animated_sprite.play("walk")
-
-func play_idle_anim():
-	if not is_on_floor():
-		return
-
-	var item = playerInventory.get_current_item()
-	match item:
-		playerInventory.ItemTypes.FIRE_AXE:
-			animated_sprite.play("idle_axe")
-		playerInventory.ItemTypes.WET_CLOTH:
-			animated_sprite.play("idle_cloth")
-		playerInventory.ItemTypes.FIRE_EXTINGUISHER:
-			animated_sprite.play("idle_exting")
-		_:
-			animated_sprite.play("idle")
-
-func play_jump_anim():
-	var item = playerInventory.get_current_item()
-	match item:
-		playerInventory.ItemTypes.FIRE_AXE:
-			animated_sprite.play("jump_axe")
-		playerInventory.ItemTypes.WET_CLOTH:
-			animated_sprite.play("jump_cloth")
-		playerInventory.ItemTypes.FIRE_EXTINGUISHER:
-			animated_sprite.play("jump_exting")
-		_:
-			animated_sprite.play("jump")

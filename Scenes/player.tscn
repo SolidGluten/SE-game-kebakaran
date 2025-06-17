@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://bbw2fxx2qbybo"]
+[gd_scene load_steps=46 format=3 uid="uid://bbw2fxx2qbybo"]
 
 [ext_resource type="Script" uid="uid://dyb17wdpyoxib" path="res://Scripts/Player/PlayerMovement.gd" id="1_8erm5"]
+[ext_resource type="Texture2D" uid="uid://dt7yqbmqmqqg5" path="res://Sprites/duck_roll.png" id="2_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://c17vqlkhy4kj3" path="res://Sprites/player-walk.png" id="2_ixlhm"]
 [ext_resource type="Texture2D" uid="uid://bkqnaatoqs1qe" path="res://Sprites/player-jump2.png" id="3_byksy"]
 [ext_resource type="Texture2D" uid="uid://dljpnl6qupmox" path="res://Sprites/player-axe2.png" id="4_faeuq"]
@@ -8,6 +9,35 @@
 [ext_resource type="Texture2D" uid="uid://vxo6cpebfusp" path="res://Sprites/player-extinguisher2.png" id="5_uvhby"]
 [ext_resource type="Script" uid="uid://be5w3p5jabs0r" path="res://Scripts/Player/SmokeDetector.gd" id="7_8erm5"]
 [ext_resource type="Script" uid="uid://bo1588ruq5rkg" path="res://Scripts/Player/PlayerInteraction.gd" id="8_8erm5"]
+[ext_resource type="Script" uid="uid://cjskkqf63m1n8" path="res://Scripts/Player/PlayerAnimation.gd" id="8_tx1dd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx1dd"]
+atlas = ExtResource("2_f1ek2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gymyn"]
+atlas = ExtResource("2_f1ek2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2lt"]
+atlas = ExtResource("2_f1ek2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukyrk"]
+atlas = ExtResource("2_f1ek2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
+atlas = ExtResource("2_f1ek2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4iuc"]
+atlas = ExtResource("2_f1ek2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd4e3"]
+atlas = ExtResource("2_f1ek2")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0c5s"]
 atlas = ExtResource("2_ixlhm")
@@ -107,6 +137,35 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o0d3e"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx1dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gymyn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukyrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dp3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4iuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fd4e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4iuc")
+}],
+"loop": true,
+"name": &"duck_roll",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c0c5s")
@@ -259,7 +318,9 @@ script = ExtResource("1_8erm5")
 z_index = 4
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_o0d3e")
-animation = &"idle"
+animation = &"duck_roll"
+frame_progress = 0.914762
+script = ExtResource("8_tx1dd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
