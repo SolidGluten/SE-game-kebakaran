@@ -18,8 +18,12 @@ signal health_changed(hp: int)
 signal dead
 
 func _ready() -> void:
+    on_ready()
+
+func on_ready() -> void:
     current_health = max_health
     fire_damage_timer = fire_damage_interval
+    is_on_fire = false
 
 func _physics_process(delta: float) -> void:
     if is_on_fire:

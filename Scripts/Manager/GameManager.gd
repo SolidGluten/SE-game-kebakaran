@@ -20,6 +20,6 @@ func set_game_state(state: GameState) -> void:
             Engine.time_scale = 0.0
         GameState.PLAYING:
             Engine.time_scale = 1.0
-            pass
+        pass
     
 

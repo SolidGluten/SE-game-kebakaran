@@ -18,6 +18,9 @@ func _ready():
 	player_anim = $AnimatedSprite2D
 
 func _physics_process(delta):
+	if gameManager.current_state == GameManager.GameState.DEAD:
+		return
+
 	var _velocity = self.velocity
 
 	if not is_on_floor():

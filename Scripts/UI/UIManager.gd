@@ -16,8 +16,12 @@ var heart_list: Array = []
 var current_health: int = 2
 
 func _ready():
-	playerInventory.connect("item_added", Callable(self, "enable_item_ui"))
-	playerHealth.connect("health_changed", Callable(self, "sync_health_ui"))
+	gameManager.set_game_state(GameManager.GameState.PLAYING)
+
+	playerInventory.item_added.connect(self.enable_item_ui)
+	playerInventory.item_resetted.connect(self.reset_item_ui)
+	playerHealth.health_changed.connect(self.sync_health_ui)
+	playerHealth.dead.connect(self.enable_death_screen)
 
 	fire_axe_img.visible = false
 	wet_cloth_img.visible = false
@@ -40,6 +44,10 @@ func _physics_process(_delta: float) -> void:
 	else:
 		roll_timer_slider.visible = false
 
+func change_slider_value(value):
+	if roll_timer_slider:
+		roll_timer_slider.value = value
+
 func enable_item_ui(item):
 	match item:
 		playerInventory.ItemTypes.FIRE_AXE:
@@ -49,9 +57,10 @@ func enable_item_ui(item):
 		playerInventory.ItemTypes.FIRE_EXTINGUISHER:
 			fire_extinguisher_img.visible = true
 
-func change_slider_value(value):
-	if roll_timer_slider:
-		roll_timer_slider.value = value
+func reset_item_ui():
+	fire_axe_img.visible = false
+	wet_cloth_img.visible = false
+	fire_extinguisher_img.visible = false
 
 func sync_health_ui(health):
 	current_health = health

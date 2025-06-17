@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgutt3f8tkjn6"]
+
+[ext_resource type="Script" uid="uid://w6qisgdbh3bx" path="res://Scripts/Manager/SceneTracker.gd" id="1_7deb1"]
+
+[node name="SceneTracker" type="Node"]
+script = ExtResource("1_7deb1")
