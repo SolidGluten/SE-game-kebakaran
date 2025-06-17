@@ -23,7 +23,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		cayotee_timer -= delta
 		_velocity += get_gravity() * delta
-		# play_jump_anim()
+		player_anim.set_state(PlayerAnimation.playerState.JUMP)
 	else:
 		cayotee_timer = cayotee_duration
 
@@ -39,10 +39,10 @@ func _physics_process(delta):
 			_velocity.x = direction.x * speed
 			is_facing_right = direction.x > 0
 			player_anim.flip_h = not is_facing_right
-			player_anim.set_state(PlayerAnimation.playerState.WALK)
+			if is_on_floor(): player_anim.set_state(PlayerAnimation.playerState.WALK)
 		else:
 			_velocity.x = move_toward(self.velocity.x, 0, speed)
-			player_anim.set_state(PlayerAnimation.playerState.IDLE)
+			if is_on_floor(): player_anim.set_state(PlayerAnimation.playerState.IDLE)
 
 	self.velocity = _velocity
 	move_and_slide()
